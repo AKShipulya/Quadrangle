@@ -10,13 +10,10 @@ public class DataValidator {
     }
 
     public static boolean isFileValid(String filePath) {
-        boolean result;
         if (filePath == null) {
-            result = false;
+            return false;
         }
         File file = new File(filePath);
-        result = file.exists() && file.length() != 0;
-
-        return result;
+        return file.exists() && file.length() != 0;
     }
 }
