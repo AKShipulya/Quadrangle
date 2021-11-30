@@ -1,4 +1,4 @@
-package com.epam.quadrangle.dao;
+package com.epam.quadrangle.exception;
 
 public class DataException extends Exception {
     public DataException() {

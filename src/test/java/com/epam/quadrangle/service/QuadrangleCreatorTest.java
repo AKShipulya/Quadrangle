@@ -27,7 +27,7 @@ public class QuadrangleCreatorTest {
             coordinatesPoints.add(60.0);
             coordinatesPoints.add(10.0);
             Quadrangle expected = new Quadrangle(new ShapePoint(10, 10), new ShapePoint(10, 40)
-                    , new ShapePoint(60, 40), new ShapePoint(60, 10));
+                    ,new ShapePoint(60, 40), new ShapePoint(60, 10));
         //when
             QuadrangleCreator creator = new QuadrangleCreator();
             Quadrangle actual = creator.createQuadrangle(coordinatesPoints);

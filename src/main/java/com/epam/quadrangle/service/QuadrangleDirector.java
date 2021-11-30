@@ -1,6 +1,6 @@
 package com.epam.quadrangle.service;
 
-import com.epam.quadrangle.dao.DataException;
+import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.dao.DataReader;
 import com.epam.quadrangle.entity.Quadrangle;
 
