@@ -1,7 +1,5 @@
 package com.epam.quadrangle.entity;
 
-import com.epam.quadrangle.exception.QuadrangleException;
-import com.epam.quadrangle.service.QuadrangleParametersValidator;
 import com.epam.quadrangle.util.QuadrangleIdGenerator;
 
 public class Quadrangle {
@@ -12,10 +10,7 @@ public class Quadrangle {
     private ShapePoint pointC;
     private ShapePoint pointD;
 
-    public Quadrangle(ShapePoint pointA, ShapePoint pointB, ShapePoint pointC, ShapePoint pointD) throws QuadrangleException {
-        if (!QuadrangleParametersValidator.areRectangleParametersValid(pointA, pointB, pointC, pointD)) {
-            throw new QuadrangleException("Invalid Quadrangle parameters!");
-        }
+    public Quadrangle(ShapePoint pointA, ShapePoint pointB, ShapePoint pointC, ShapePoint pointD) {
         this.QuadrangleId = QuadrangleIdGenerator.generateId();
         this.pointA = pointA;
         this.pointB = pointB;
