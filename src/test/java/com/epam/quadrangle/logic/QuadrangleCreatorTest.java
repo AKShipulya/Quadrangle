@@ -19,7 +19,8 @@ public class QuadrangleCreatorTest {
             Quadrangle expected = new Quadrangle(new Point(10, 10), new Point(10, 40)
                     ,new Point(60, 40), new Point(60, 10));
         //when
-            QuadrangleCreator creator = new QuadrangleCreator();
+            QuadrangleValidator VALIDATOR = new QuadrangleValidator();
+            QuadrangleCreator creator = new QuadrangleCreator(VALIDATOR);
             Quadrangle actual = creator.createQuadrangle(coordinatesPoints);
         //then
         Assert.assertEquals(expected, actual);

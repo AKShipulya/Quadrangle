@@ -11,6 +11,11 @@ import java.util.List;
 public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final int NUMBER_OF_COORDINATES = 8;
+    private final QuadrangleValidator VALIDATOR;
+
+    public QuadrangleCreator(QuadrangleValidator quadrangleValidator) {
+        this.VALIDATOR = quadrangleValidator;
+    }
 
     public Quadrangle createQuadrangle(List<Double> coordinates) throws QuadrangleException {
         if (coordinates.size() != NUMBER_OF_COORDINATES) {
@@ -23,8 +28,7 @@ public class QuadrangleCreator {
         Point pointD = new Point(coordinates.get(6), coordinates.get(7));
 
         Quadrangle quadrangle = new Quadrangle(pointA, pointB, pointC, pointD);
-        QuadrangleValidator validator = new QuadrangleValidator();
-        if (!validator.isValid(quadrangle)) {
+        if (!VALIDATOR.isValid(quadrangle)) {
             throw new QuadrangleException("Quadrangle cannot be created!");
         }
         LOGGER.info("Quadrangle was created successfully!");

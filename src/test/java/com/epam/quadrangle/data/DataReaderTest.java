@@ -14,7 +14,8 @@ public class DataReaderTest {
     @Test
     public void testReadValidLinesFromFileShouldReadValidLines() throws DataException, IOException {
         //given
-        DataReader reader = new DataReader();
+        DataLineValidator validator = new DataLineValidator();
+        DataReader reader = new DataReader(validator);
         String filePath = "src/test/resources/testCoordinates.txt";
         List<String> expected = Arrays.asList("10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0",
                                             "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0");
@@ -27,7 +28,8 @@ public class DataReaderTest {
     @Test(expected = DataException.class)
     public void testReadValidLinesFromFileShouldNotReadLines() throws DataException, IOException {
         //given
-        DataReader reader = new DataReader();
+        DataLineValidator validator = new DataLineValidator();
+        DataReader reader = new DataReader(validator);
         String filePath = "src/test/resources/testInvalidCoordinates.txt";
         //when
         reader.readValidLinesFromFile(filePath);

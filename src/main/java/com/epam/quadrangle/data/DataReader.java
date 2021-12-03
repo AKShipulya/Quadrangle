@@ -14,6 +14,11 @@ import java.util.List;
 
 public class DataReader {
     private static final Logger LOGGER = LogManager.getLogger();
+    private final DataLineValidator VALIDATOR;
+
+    public DataReader(DataLineValidator lineValidator) {
+        VALIDATOR = lineValidator;
+    }
 
     public List<String> readValidLinesFromFile(String filePath) throws DataException, IOException {
 
@@ -24,7 +29,7 @@ public class DataReader {
         try {
             String line = bufferedReader.readLine();
 
-            if (!DataLineValidator.isValid(line)) {
+            if (!VALIDATOR.isValid(line)) {
                 throw new DataException("Invalid line for reading");
             }
 

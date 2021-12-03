@@ -9,7 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class QuadrangleCalculatorTest {
-    private final QuadrangleCreator CREATOR = new QuadrangleCreator();
+    private final QuadrangleValidator VALIDATOR = new QuadrangleValidator();
+    private final QuadrangleCreator CREATOR = new QuadrangleCreator(VALIDATOR);
     private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
     private static final List<Double> COORDINATES_POINTS =
             Arrays.asList(10.0, 10.0, 10.0, 40.0, 60.0, 40.0, 60.0, 10.0);
