@@ -9,99 +9,84 @@ import org.apache.logging.log4j.Logger;
 public class QuadrangleCalculator {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public double calculateQuadrangleArea(Quadrangle Quadrangle) throws QuadrangleException {
-        if (Quadrangle == null) {
+    public double calculateQuadrangleArea(Quadrangle quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
-        Point pointA = Quadrangle.getPointA();
-        Point pointB = Quadrangle.getPointB();
-        Point pointC = Quadrangle.getPointC();
+        Point[] points = getPoints(quadrangle);
         double result;
 
-        double ab = Math.sqrt(Math.pow(pointB.getPointX() - pointA.getPointX(), 2) + Math.pow(pointB.getPointY() - pointA.getPointY(), 2));
-        double bc = Math.sqrt(Math.pow(pointC.getPointX() - pointB.getPointX(), 2) + Math.pow(pointC.getPointY() - pointB.getPointY(), 2));
-
+        double ab = Math.sqrt(Math.pow(points[1].getPointX() - points[0].getPointX(), 2) +
+                Math.pow(points[1].getPointY() - points[0].getPointY(), 2));
+        double bc = Math.sqrt(Math.pow(points[2].getPointX() - points[1].getPointX(), 2) +
+                Math.pow(points[2].getPointY() - points[1].getPointY(), 2));
         result = ab * bc;
+
         LOGGER.info("Quadrangle calculated area is: {}", result);
         return result;
     }
 
-    public double calculateQuadranglePerimeter(Quadrangle Quadrangle) throws QuadrangleException {
-        if (Quadrangle == null) {
+    public double calculateQuadranglePerimeter(Quadrangle quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
-        Point pointA = Quadrangle.getPointA();
-        Point pointB = Quadrangle.getPointB();
-        Point pointC = Quadrangle.getPointC();
-        double ab, bc;
+        Point[] points = getPoints(quadrangle);
         double result;
 
-        ab = Math.sqrt(Math.pow((pointB.getPointX() - pointA.getPointX()), 2) + Math.pow((pointB.getPointY() - pointA.getPointY()), 2));
-        bc = Math.sqrt(Math.pow((pointC.getPointX() - pointB.getPointX()), 2) + Math.pow((pointC.getPointY() - pointB.getPointY()), 2));
-
+        double ab = Math.sqrt(Math.pow((points[1].getPointX() - points[0].getPointX()), 2) +
+                Math.pow((points[1].getPointY() - points[0].getPointY()), 2));
+        double bc = Math.sqrt(Math.pow((points[2].getPointX() - points[1].getPointX()), 2) +
+                Math.pow((points[2].getPointY() - points[1].getPointY()), 2));
         result = 2 * ab + 2 * bc;
+
         LOGGER.info("Quadrangle calculated perimeter is: {}", result);
         return result;
     }
 
-    public boolean isSidesParallel(Quadrangle Quadrangle) throws QuadrangleException {
-        if (Quadrangle == null) {
+    public boolean isSidesParallel(Quadrangle quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
         double threshold = 1e-10;
-        boolean result;
-        Point pointA = Quadrangle.getPointA();
-        Point pointB = Quadrangle.getPointB();
-        Point pointC = Quadrangle.getPointC();
-        Point pointD = Quadrangle.getPointC();
+        Point[] points = getPoints(quadrangle);
 
-        Point ab = new Point(pointB.getPointX() - pointA.getPointX(), pointB.getPointY() - pointA.getPointY());
-        Point cd = new Point(pointC.getPointX() - pointD.getPointX(), pointC.getPointY() - pointD.getPointY());
+        Point ab = new Point(points[1].getPointX() - points[0].getPointX(),
+                points[1].getPointY() - points[0].getPointY());
+        Point cd = new Point(points[2].getPointX() - points[3].getPointX(),
+                points[2].getPointY() - points[3].getPointY());
+        boolean result = (Math.abs(ab.getPointX() * cd.getPointY() - ab.getPointY() * cd.getPointX()) < threshold);
 
-        result = (Math.abs(ab.getPointX() * cd.getPointY() - ab.getPointY() * cd.getPointX()) < threshold);
         LOGGER.info("Quadrangle has parallel sides: {}", result);
         return result;
     }
 
-    public boolean isSquare(Quadrangle Quadrangle) throws QuadrangleException {
-        if (Quadrangle == null) {
+    public boolean isSquare(Quadrangle quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
-        Point pointA = Quadrangle.getPointA();
-        Point pointB = Quadrangle.getPointB();
-        Point pointC = Quadrangle.getPointC();
-        boolean isParallel = isSidesParallel(Quadrangle);
-        boolean isLinesSameLength;
-        boolean result;
-        double ab, bc;
+        Point[] points = getPoints(quadrangle);
+        boolean isParallel = isSidesParallel(quadrangle);
 
-        ab = Math.sqrt(Math.pow((pointA.getPointX() - pointB.getPointX()), 2) + Math.pow((pointA.getPointY() - pointB.getPointY()), 2));
-        bc = Math.sqrt(Math.pow((pointB.getPointX() - pointC.getPointX()), 2) + Math.pow((pointB.getPointY() - pointC.getPointY()), 2));
-        isLinesSameLength = ab == bc;
+        double ab = Math.sqrt(Math.pow((points[0].getPointX() - points[1].getPointX()), 2) +
+                Math.pow((points[0].getPointY() - points[1].getPointY()), 2));
+        double bc = Math.sqrt(Math.pow((points[1].getPointX() - points[2].getPointX()), 2) +
+                Math.pow((points[1].getPointY() - points[2].getPointY()), 2));
+        boolean isLinesSameLength = ab == bc;
+        boolean result = isParallel && isLinesSameLength;
 
-        result = isParallel && isLinesSameLength;
         LOGGER.info("Quadrangle is a square: {}", result);
         return result;
     }
 
-    public boolean isRectangle(Quadrangle Quadrangle) throws QuadrangleException {
-        if (Quadrangle == null) {
+    public boolean isRectangle(Quadrangle quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
-        Point pointA = Quadrangle.getPointA();
-        Point pointB = Quadrangle.getPointB();
-        Point pointC = Quadrangle.getPointC();
-        boolean isParallel = isSidesParallel(Quadrangle);
-        boolean isLinesNotSameLength;
-        boolean result;
-        // TODO: 03.12.2021 set variables direct with data!!!
-        double ab, bc;
+        boolean isParallel = isSidesParallel(quadrangle);
+        boolean isNotSquare = !isSquare(quadrangle);
 
-        ab = Math.sqrt(Math.pow((pointA.getPointX() - pointB.getPointX()), 2) + Math.pow((pointA.getPointY() - pointB.getPointY()), 2));
-        bc = Math.sqrt(Math.pow((pointB.getPointX() - pointC.getPointX()), 2) + Math.pow((pointB.getPointY() - pointC.getPointY()), 2));
-        isLinesNotSameLength = ab != bc;
+        boolean result = isParallel && isNotSquare;
 
-        result = isParallel && isLinesNotSameLength;
         LOGGER.info("Quadrangle is a rectangle: {}", result);
         return result;
     }
@@ -109,5 +94,10 @@ public class QuadrangleCalculator {
     public boolean isQuadrangleCrossingAxis(Quadrangle quadrangle, Double distance, Axis axis) {
         // TODO: 01.12.2021 create this method
         return true;
+    }
+
+    private Point[] getPoints(Quadrangle quadrangle) {
+        return new Point[] {quadrangle.getPointA(), quadrangle.getPointB(),
+                quadrangle.getPointC(), quadrangle.getPointD()};
     }
 }
