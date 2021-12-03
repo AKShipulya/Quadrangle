@@ -4,7 +4,7 @@ import com.epam.quadrangle.entity.Point;
 
 public class QuadrangleParametersValidator {
 
-    public static boolean areRectangleParametersValid(Point pointA, Point pointB,
+    public static boolean isRectangleValid(Point pointA, Point pointB,
                                                       Point pointC, Point pointD) {
         if (pointA == null && pointB == null && pointC == null && pointD == null) {
             return false;
