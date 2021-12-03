@@ -7,41 +7,21 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class QuadrangleCalculatorTest {
     private final QuadrangleCreator quadrangleCreator = QuadrangleCreator.getInstance();
     private final QuadrangleCalculator quadrangleCalculator = new QuadrangleCalculator();
-    private List<Double> coordinatesPoints;
-    private List<Double> SquareCoordinatesPoints;
-
-    @Before
-    public void setUp() {
-        coordinatesPoints = new ArrayList<>();
-        coordinatesPoints.add(10.0);
-        coordinatesPoints.add(10.0);
-        coordinatesPoints.add(10.0);
-        coordinatesPoints.add(40.0);
-        coordinatesPoints.add(60.0);
-        coordinatesPoints.add(40.0);
-        coordinatesPoints.add(60.0);
-        coordinatesPoints.add(10.0);
-
-        SquareCoordinatesPoints = new ArrayList<>();
-        SquareCoordinatesPoints.add(10.0);
-        SquareCoordinatesPoints.add(10.0);
-        SquareCoordinatesPoints.add(10.0);
-        SquareCoordinatesPoints.add(40.0);
-        SquareCoordinatesPoints.add(40.0);
-        SquareCoordinatesPoints.add(40.0);
-        SquareCoordinatesPoints.add(40.0);
-        SquareCoordinatesPoints.add(10.0);
-    }
+    private static final List<Double> COORDINATES_POINTS =
+            Arrays.asList(10.0, 10.0, 10.0, 40.0, 60.0, 40.0, 60.0, 10.0);
+    private static final List<Double> SQUARE_COORDINATES_POINTS =
+            Arrays.asList(10.0, 10.0, 10.0, 40.0, 40.0, 40.0, 40.0, 10.0);
 
     @Test
     public void testCalculateQuadrangleAreaShouldReturnsValidValue() throws QuadrangleException {
         //given
-        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(coordinatesPoints);
+        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(COORDINATES_POINTS);
         double expected = 1500.0;
         //when
         double actual = quadrangleCalculator.calculateQuadrangleArea(Quadrangle);
@@ -52,7 +32,7 @@ public class QuadrangleCalculatorTest {
     @Test
     public void testCalculateQuadranglePerimeterShouldReturnsValidValue() throws QuadrangleException {
         //given
-        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(coordinatesPoints);
+        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(COORDINATES_POINTS);
         double expected = 160.00;
         //when
         double actual = quadrangleCalculator.calculateQuadranglePerimeter(Quadrangle);
@@ -63,7 +43,7 @@ public class QuadrangleCalculatorTest {
     @Test
     public void ifQuadrangleIsSquare() throws QuadrangleException {
         //given
-        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(SquareCoordinatesPoints);
+        Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(SQUARE_COORDINATES_POINTS);
         //when
         boolean actual = quadrangleCalculator.isSquare(Quadrangle);
         //then
