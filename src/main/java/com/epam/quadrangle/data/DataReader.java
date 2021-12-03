@@ -16,7 +16,7 @@ public class DataReader {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public List<String> readValidLinesFromFile(String filePath) throws DataException, IOException {
-        if (!DataValidator.isFileValid(filePath)) {
+        if (!QuadrangleLineValidator.isFileValid(filePath)) {
             throw new DataException("Invalid file or file path!");
         }
 
@@ -27,7 +27,7 @@ public class DataReader {
         try {
             String line = bufferedReader.readLine();
 
-            if (!DataValidator.isLinesValid(line)) {
+            if (!QuadrangleLineValidator.isValid(line)) {
                 throw new DataException("Invalid line for reading");
             }
 
