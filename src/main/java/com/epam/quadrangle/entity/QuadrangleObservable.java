@@ -3,7 +3,6 @@ package com.epam.quadrangle.entity;
 import com.epam.quadrangle.exception.QuadrangleException;
 import com.epam.quadrangle.observer.Observable;
 import com.epam.quadrangle.observer.Observer;
-import com.epam.quadrangle.util.QuadrangleIdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +12,10 @@ public class QuadrangleObservable extends Quadrangle implements Observable {
     private final Long ID;
     private final List<Observer> OBSERVERS = new ArrayList<>();
 
-    public QuadrangleObservable(Point pointA, Point pointB, Point pointC, Point pointD) {
+    public QuadrangleObservable(Long ID, Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
-        this.ID = QuadrangleIdGenerator.generateId();
+
+        this.ID = ID;
     }
 
     public Long getID() {
