@@ -14,13 +14,12 @@ public class QuadrangleCalculator {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point[] points = getPoints(quadrangle);
-        double result;
 
         double ab = Math.sqrt(Math.pow(points[1].getPointX() - points[0].getPointX(), 2) +
                 Math.pow(points[1].getPointY() - points[0].getPointY(), 2));
         double bc = Math.sqrt(Math.pow(points[2].getPointX() - points[1].getPointX(), 2) +
                 Math.pow(points[2].getPointY() - points[1].getPointY(), 2));
-        result = ab * bc;
+        double result = ab * bc;
 
         LOGGER.info("Quadrangle calculated area is: {}", result);
         return result;
@@ -31,13 +30,12 @@ public class QuadrangleCalculator {
             throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point[] points = getPoints(quadrangle);
-        double result;
 
         double ab = Math.sqrt(Math.pow((points[1].getPointX() - points[0].getPointX()), 2) +
                 Math.pow((points[1].getPointY() - points[0].getPointY()), 2));
         double bc = Math.sqrt(Math.pow((points[2].getPointX() - points[1].getPointX()), 2) +
                 Math.pow((points[2].getPointY() - points[1].getPointY()), 2));
-        result = 2 * ab + 2 * bc;
+        double result = 2 * ab + 2 * bc;
 
         LOGGER.info("Quadrangle calculated perimeter is: {}", result);
         return result;
