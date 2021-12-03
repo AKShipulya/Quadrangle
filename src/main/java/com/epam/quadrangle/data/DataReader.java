@@ -15,16 +15,16 @@ import java.util.List;
 public class DataReader {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public List<String> readValidLinesFromFile(String filePath) throws DataException {
+    public List<String> readValidLinesFromFile(String filePath) throws DataException, IOException {
         if (!DataValidator.isFileValid(filePath)) {
             throw new DataException("Invalid file or file path!");
         }
 
+        Path path = Paths.get(filePath);
+        BufferedReader bufferedReader = Files.newBufferedReader(path);
         List<String> linesFromFile = new ArrayList<>();
 
         try {
-            Path path = Paths.get(filePath);
-            BufferedReader bufferedReader = Files.newBufferedReader(path);
             String line = bufferedReader.readLine();
 
             if (!DataValidator.isLinesValid(line)) {
@@ -35,9 +35,10 @@ public class DataReader {
                 linesFromFile.add(line);
                 line = bufferedReader.readLine();
             }
-            bufferedReader.close();
         } catch (IOException e) {
             throw new DataException("Reading file error! ", e);
+        } finally {
+            bufferedReader.close();
         }
 
         if (linesFromFile.size() == 0) {

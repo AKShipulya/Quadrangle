@@ -9,6 +9,7 @@ import com.epam.quadrangle.logic.QuadrangleCreator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class QuadrangleDirector {
         this.creator = creator;
     }
 
-    public List<Quadrangle> read(String filePath) throws DataException, QuadrangleException {
+    public List<Quadrangle> read(String filePath) throws DataException, QuadrangleException, IOException {
         if (filePath == null || filePath.isEmpty()) {
             throw new DataException("Invalid path to file with data");
         }
