@@ -12,8 +12,6 @@ public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final int NUMBER_OF_COORDINATES = 8;
 
-    private static final QuadrangleCreator instance = new QuadrangleCreator();
-
     public Quadrangle createQuadrangle(List<Double> coordinates) throws QuadrangleException {
         if (coordinates.size() != NUMBER_OF_COORDINATES) {
             throw new QuadrangleException("Invalid number of coordinates" + coordinates);
@@ -24,11 +22,12 @@ public class QuadrangleCreator {
         Point pointC = new Point(coordinates.get(4), coordinates.get(5));
         Point pointD = new Point(coordinates.get(6), coordinates.get(7));
 
+        Quadrangle quadrangle = new Quadrangle(pointA, pointB, pointC, pointD);
+        QuadrangleValidator validator = new QuadrangleValidator();
+        if (!validator.isValid(quadrangle)) {
+            throw new QuadrangleException("Quadrangle cannot be created!");
+        }
         LOGGER.info("Quadrangle was created successfully!");
-        return new Quadrangle(pointA, pointB, pointC, pointD);
-    }
-
-    public static QuadrangleCreator getInstance() {
-        return instance;
+        return quadrangle;
     }
 }
