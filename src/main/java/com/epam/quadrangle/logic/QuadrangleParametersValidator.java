@@ -1,11 +1,11 @@
 package com.epam.quadrangle.logic;
 
-import com.epam.quadrangle.entity.ShapePoint;
+import com.epam.quadrangle.entity.Point;
 
 public class QuadrangleParametersValidator {
 
-    public static boolean areRectangleParametersValid(ShapePoint pointA, ShapePoint pointB,
-                                                      ShapePoint pointC, ShapePoint pointD) {
+    public static boolean areRectangleParametersValid(Point pointA, Point pointB,
+                                                      Point pointC, Point pointD) {
         if (pointA == null && pointB == null && pointC == null && pointD == null) {
             return false;
         }

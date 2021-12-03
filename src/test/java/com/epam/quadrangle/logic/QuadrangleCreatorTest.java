@@ -1,7 +1,7 @@
 package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
-import com.epam.quadrangle.entity.ShapePoint;
+import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,8 +23,8 @@ public class QuadrangleCreatorTest {
             coordinatesPoints.add(40.0);
             coordinatesPoints.add(60.0);
             coordinatesPoints.add(10.0);
-            Quadrangle expected = new Quadrangle(new ShapePoint(10, 10), new ShapePoint(10, 40)
-                    ,new ShapePoint(60, 40), new ShapePoint(60, 10));
+            Quadrangle expected = new Quadrangle(new Point(10, 10), new Point(10, 40)
+                    ,new Point(60, 40), new Point(60, 10));
         //when
             QuadrangleCreator creator = new QuadrangleCreator();
             Quadrangle actual = creator.createQuadrangle(coordinatesPoints);

@@ -1,7 +1,7 @@
 package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
-import com.epam.quadrangle.entity.ShapePoint;
+import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,10 +19,10 @@ public class QuadrangleCreator {
             throw new QuadrangleException("Invalid number of coordinates" + coordinates);
         }
 
-        ShapePoint pointA = new ShapePoint(coordinates.get(0), coordinates.get(1));
-        ShapePoint pointB = new ShapePoint(coordinates.get(2), coordinates.get(3));
-        ShapePoint pointC = new ShapePoint(coordinates.get(4), coordinates.get(5));
-        ShapePoint pointD = new ShapePoint(coordinates.get(6), coordinates.get(7));
+        Point pointA = new Point(coordinates.get(0), coordinates.get(1));
+        Point pointB = new Point(coordinates.get(2), coordinates.get(3));
+        Point pointC = new Point(coordinates.get(4), coordinates.get(5));
+        Point pointD = new Point(coordinates.get(6), coordinates.get(7));
 
         LOGGER.info("Quadrangle was created successfully!");
         return new Quadrangle(pointA, pointB, pointC, pointD);

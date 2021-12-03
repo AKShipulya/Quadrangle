@@ -1,7 +1,7 @@
 package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
-import com.epam.quadrangle.entity.ShapePoint;
+import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,9 +14,9 @@ public class QuadrangleCalculator {
         if (Quadrangle == null) {
             throw new QuadrangleException(ERROR_MESSAGE);
         }
-        ShapePoint pointA = Quadrangle.getPointA();
-        ShapePoint pointB = Quadrangle.getPointB();
-        ShapePoint pointC = Quadrangle.getPointC();
+        Point pointA = Quadrangle.getPointA();
+        Point pointB = Quadrangle.getPointB();
+        Point pointC = Quadrangle.getPointC();
         double ab, bc;
         double result;
 
@@ -32,9 +32,9 @@ public class QuadrangleCalculator {
         if (Quadrangle == null) {
             throw new QuadrangleException(ERROR_MESSAGE);
         }
-        ShapePoint pointA = Quadrangle.getPointA();
-        ShapePoint pointB = Quadrangle.getPointB();
-        ShapePoint pointC = Quadrangle.getPointC();
+        Point pointA = Quadrangle.getPointA();
+        Point pointB = Quadrangle.getPointB();
+        Point pointC = Quadrangle.getPointC();
         double ab, bc;
         double result;
 
@@ -52,13 +52,13 @@ public class QuadrangleCalculator {
         }
         double threshold = 1e-10;
         boolean result;
-        ShapePoint pointA = Quadrangle.getPointA();
-        ShapePoint pointB = Quadrangle.getPointB();
-        ShapePoint pointC = Quadrangle.getPointC();
-        ShapePoint pointD = Quadrangle.getPointC();
+        Point pointA = Quadrangle.getPointA();
+        Point pointB = Quadrangle.getPointB();
+        Point pointC = Quadrangle.getPointC();
+        Point pointD = Quadrangle.getPointC();
 
-        ShapePoint ab = new ShapePoint(pointB.getPointX() - pointA.getPointX(), pointB.getPointY() - pointA.getPointY());
-        ShapePoint cd = new ShapePoint(pointC.getPointX() - pointD.getPointX(), pointC.getPointY() - pointD.getPointY());
+        Point ab = new Point(pointB.getPointX() - pointA.getPointX(), pointB.getPointY() - pointA.getPointY());
+        Point cd = new Point(pointC.getPointX() - pointD.getPointX(), pointC.getPointY() - pointD.getPointY());
 
         result = (Math.abs(ab.getPointX() * cd.getPointY() - ab.getPointY() * cd.getPointX()) < threshold);
         LOGGER.info("Quadrangle has parallel sides: {}", result);
@@ -69,9 +69,9 @@ public class QuadrangleCalculator {
         if (Quadrangle == null) {
             throw new QuadrangleException(ERROR_MESSAGE);
         }
-        ShapePoint pointA = Quadrangle.getPointA();
-        ShapePoint pointB = Quadrangle.getPointB();
-        ShapePoint pointC = Quadrangle.getPointC();
+        Point pointA = Quadrangle.getPointA();
+        Point pointB = Quadrangle.getPointB();
+        Point pointC = Quadrangle.getPointC();
         boolean isParallel = isSidesParallel(Quadrangle);
         boolean isLinesSameLength;
         boolean result;
@@ -90,9 +90,9 @@ public class QuadrangleCalculator {
         if (Quadrangle == null) {
             throw new QuadrangleException(ERROR_MESSAGE);
         }
-        ShapePoint pointA = Quadrangle.getPointA();
-        ShapePoint pointB = Quadrangle.getPointB();
-        ShapePoint pointC = Quadrangle.getPointC();
+        Point pointA = Quadrangle.getPointA();
+        Point pointB = Quadrangle.getPointB();
+        Point pointC = Quadrangle.getPointC();
         boolean isParallel = isSidesParallel(Quadrangle);
         boolean isLinesNotSameLength;
         boolean result;

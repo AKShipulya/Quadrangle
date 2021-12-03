@@ -1,11 +1,11 @@
 package com.epam.quadrangle.entity;
 
-public class ShapePoint {
+public class Point {
 
     private double pointX;
     private double pointY;
 
-    public ShapePoint(double pointX, double pointY) {
+    public Point(double pointX, double pointY) {
         this.pointX = pointX;
         this.pointY = pointY;
     }
@@ -28,12 +28,18 @@ public class ShapePoint {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
-        ShapePoint that = (ShapePoint) o;
+        Point that = (Point) o;
 
-        if (Double.compare(that.pointX, pointX) != 0) return false;
+        if (Double.compare(that.pointX, pointX) != 0) {
+            return false;
+        }
         return Double.compare(that.pointY, pointY) == 0;
     }
 

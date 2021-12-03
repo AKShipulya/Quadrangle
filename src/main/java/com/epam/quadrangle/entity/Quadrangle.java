@@ -5,12 +5,12 @@ import com.epam.quadrangle.util.QuadrangleIdGenerator;
 public class Quadrangle {
 
     private long QuadrangleId;
-    private ShapePoint pointA;
-    private ShapePoint pointB;
-    private ShapePoint pointC;
-    private ShapePoint pointD;
+    private Point pointA;
+    private Point pointB;
+    private Point pointC;
+    private Point pointD;
 
-    public Quadrangle(ShapePoint pointA, ShapePoint pointB, ShapePoint pointC, ShapePoint pointD) {
+    public Quadrangle(Point pointA, Point pointB, Point pointC, Point pointD) {
         this.QuadrangleId = QuadrangleIdGenerator.generateId();
         this.pointA = pointA;
         this.pointB = pointB;
@@ -26,35 +26,35 @@ public class Quadrangle {
         this.QuadrangleId = quadrangleId;
     }
 
-    public ShapePoint getPointA() {
+    public Point getPointA() {
         return pointA;
     }
 
-    public void setPointA(ShapePoint pointA) {
+    public void setPointA(Point pointA) {
         this.pointA = pointA;
     }
 
-    public ShapePoint getPointB() {
+    public Point getPointB() {
         return pointB;
     }
 
-    public void setPointB(ShapePoint pointB) {
+    public void setPointB(Point pointB) {
         this.pointB = pointB;
     }
 
-    public ShapePoint getPointC() {
+    public Point getPointC() {
         return pointC;
     }
 
-    public void setPointC(ShapePoint pointC) {
+    public void setPointC(Point pointC) {
         this.pointC = pointC;
     }
 
-    public ShapePoint getPointD() {
+    public Point getPointD() {
         return pointD;
     }
 
-    public void setPointD(ShapePoint pointD) {
+    public void setPointD(Point pointD) {
         this.pointD = pointD;
     }
 
