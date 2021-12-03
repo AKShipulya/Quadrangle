@@ -8,7 +8,7 @@ import org.junit.Test;
 public class QuadrangleValidatorTest {
 
     @Test
-    public void testIsQuadrangleValidShouldValidateParameters() {
+    public void testIsValidShouldValidateParameters() {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
         Quadrangle quadrangle = new Quadrangle(new Point(10.0, 10.0), new Point(10.0, 40.0),
@@ -20,7 +20,7 @@ public class QuadrangleValidatorTest {
     }
 
     @Test
-    public void testIsQuadrangleValidShouldNotValidateParameters() {
+    public void testIsValidShouldNotValidateParameters() {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
         Quadrangle quadrangle = new Quadrangle(new Point(11.0, 10.0), new Point(10.0, 40.0),
