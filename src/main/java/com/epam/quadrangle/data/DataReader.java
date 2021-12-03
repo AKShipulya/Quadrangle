@@ -24,7 +24,7 @@ public class DataReader {
         try {
             String line = bufferedReader.readLine();
 
-            if (!QuadrangleLineValidator.isValid(line)) {
+            if (!DataLineValidator.isValid(line)) {
                 throw new DataException("Invalid line for reading");
             }
 
