@@ -60,14 +60,24 @@ public class Quadrangle {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Quadrangle that = (Quadrangle) o;
 
-        if (!pointA.equals(that.pointA)) return false;
-        if (!pointB.equals(that.pointB)) return false;
-        if (!pointC.equals(that.pointC)) return false;
+        if (!pointA.equals(that.pointA)) {
+            return false;
+        }
+        if (!pointB.equals(that.pointB)) {
+            return false;
+        }
+        if (!pointC.equals(that.pointC)) {
+            return false;
+        }
         return pointD.equals(that.pointD);
     }
 
