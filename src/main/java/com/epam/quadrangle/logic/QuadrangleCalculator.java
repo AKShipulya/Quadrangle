@@ -16,11 +16,10 @@ public class QuadrangleCalculator {
         Point pointA = Quadrangle.getPointA();
         Point pointB = Quadrangle.getPointB();
         Point pointC = Quadrangle.getPointC();
-        double ab, bc;
         double result;
 
-        ab = Math.sqrt(Math.pow(pointB.getPointX() - pointA.getPointX(), 2) + Math.pow(pointB.getPointY() - pointA.getPointY(), 2));
-        bc = Math.sqrt(Math.pow(pointC.getPointX() - pointB.getPointX(), 2) + Math.pow(pointC.getPointY() - pointB.getPointY(), 2));
+        double ab = Math.sqrt(Math.pow(pointB.getPointX() - pointA.getPointX(), 2) + Math.pow(pointB.getPointY() - pointA.getPointY(), 2));
+        double bc = Math.sqrt(Math.pow(pointC.getPointX() - pointB.getPointX(), 2) + Math.pow(pointC.getPointY() - pointB.getPointY(), 2));
 
         result = ab * bc;
         LOGGER.info("Quadrangle calculated area is: {}", result);

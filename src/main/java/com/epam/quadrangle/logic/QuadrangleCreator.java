@@ -10,7 +10,6 @@ import java.util.List;
 
 public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final int NUMBER_OF_COORDINATES = 8;
     private final QuadrangleValidator QUADRANGLE_VALIDATOR;
 
     public QuadrangleCreator(QuadrangleValidator quadrangleValidator) {
@@ -18,9 +17,6 @@ public class QuadrangleCreator {
     }
 
     public Quadrangle createQuadrangle(List<Double> coordinates) throws QuadrangleException {
-        if (coordinates.size() != NUMBER_OF_COORDINATES) {
-            throw new QuadrangleException("Invalid number of coordinates" + coordinates);
-        }
 
         Point pointA = new Point(coordinates.get(0), coordinates.get(1));
         Point pointB = new Point(coordinates.get(2), coordinates.get(3));
