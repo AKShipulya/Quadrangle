@@ -36,6 +36,7 @@ public class QuadrangleDirector {
         for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
             List<Double> parsedLinesToDouble = parser.parseToCoordinates(pointsLine);
             Quadrangle quadrangle = creator.createQuadrangle(parsedLinesToDouble);
+            // TODO: 03.12.2021 validation of the created quadrangle
             quadrangles.add(quadrangle);
         }
         LOGGER.info("Quadrangles were created successfully!");
