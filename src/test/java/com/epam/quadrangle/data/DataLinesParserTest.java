@@ -1,8 +1,6 @@
-package com.epam.quadrangle.dao;
+package com.epam.quadrangle.data;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DataLinesParserTest {
 

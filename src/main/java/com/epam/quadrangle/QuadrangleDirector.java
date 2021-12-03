@@ -1,10 +1,11 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle;
 
-import com.epam.quadrangle.dao.DataLinesParser;
+import com.epam.quadrangle.data.DataLinesParser;
 import com.epam.quadrangle.exception.DataException;
-import com.epam.quadrangle.dao.DataReader;
+import com.epam.quadrangle.data.DataReader;
 import com.epam.quadrangle.entity.Quadrangle;
 import com.epam.quadrangle.exception.QuadrangleException;
+import com.epam.quadrangle.logic.QuadrangleCreator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

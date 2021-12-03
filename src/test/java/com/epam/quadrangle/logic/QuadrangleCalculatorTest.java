@@ -1,4 +1,4 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
 import com.epam.quadrangle.exception.QuadrangleException;
@@ -9,9 +9,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuadrangleServiceTest {
+public class QuadrangleCalculatorTest {
     private final QuadrangleCreator quadrangleCreator = QuadrangleCreator.getInstance();
-    private final QuadrangleService quadrangleService = new QuadrangleService();
+    private final QuadrangleCalculator quadrangleCalculator = new QuadrangleCalculator();
     private List<Double> coordinatesPoints;
     private List<Double> SquareCoordinatesPoints;
 
@@ -44,7 +44,7 @@ public class QuadrangleServiceTest {
         Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(coordinatesPoints);
         double expected = 1500.0;
         //when
-        double actual = quadrangleService.calculateQuadrangleArea(Quadrangle);
+        double actual = quadrangleCalculator.calculateQuadrangleArea(Quadrangle);
         //then
         Assert.assertEquals(expected, actual, 0.0001);
     }
@@ -55,7 +55,7 @@ public class QuadrangleServiceTest {
         Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(coordinatesPoints);
         double expected = 160.00;
         //when
-        double actual = quadrangleService.calculateQuadranglePerimeter(Quadrangle);
+        double actual = quadrangleCalculator.calculateQuadranglePerimeter(Quadrangle);
         //then
         Assert.assertEquals(expected, actual, 0.0001);
     }
@@ -65,7 +65,7 @@ public class QuadrangleServiceTest {
         //given
         Quadrangle Quadrangle = quadrangleCreator.createQuadrangle(SquareCoordinatesPoints);
         //when
-        boolean actual = quadrangleService.isSquare(Quadrangle);
+        boolean actual = quadrangleCalculator.isSquare(Quadrangle);
         //then
         Assert.assertTrue(actual);
 

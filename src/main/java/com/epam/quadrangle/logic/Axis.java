@@ -1,4 +1,4 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle.logic;
 
 public enum Axis {
 

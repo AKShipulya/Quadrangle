@@ -1,4 +1,4 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
 import com.epam.quadrangle.entity.ShapePoint;
@@ -8,9 +8,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import static org.junit.Assert.*;
 
 public class QuadrangleCreatorTest {
 

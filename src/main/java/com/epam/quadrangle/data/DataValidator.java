@@ -1,4 +1,4 @@
-package com.epam.quadrangle.dao;
+package com.epam.quadrangle.data;
 
 import java.io.File;
 

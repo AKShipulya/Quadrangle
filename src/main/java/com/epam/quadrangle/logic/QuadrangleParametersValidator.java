@@ -1,4 +1,4 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.ShapePoint;
 

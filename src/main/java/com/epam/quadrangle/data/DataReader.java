@@ -1,4 +1,4 @@
-package com.epam.quadrangle.dao;
+package com.epam.quadrangle.data;
 
 import com.epam.quadrangle.exception.DataException;
 import org.apache.logging.log4j.LogManager;

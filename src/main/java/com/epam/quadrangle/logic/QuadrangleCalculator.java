@@ -1,4 +1,4 @@
-package com.epam.quadrangle.service;
+package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Quadrangle;
 import com.epam.quadrangle.entity.ShapePoint;
@@ -6,7 +6,7 @@ import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class QuadrangleService {
+public class QuadrangleCalculator {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String ERROR_MESSAGE = "Invalid Quadrangle!";
 
