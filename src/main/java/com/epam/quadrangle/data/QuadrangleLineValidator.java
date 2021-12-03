@@ -9,11 +9,4 @@ public class QuadrangleLineValidator {
         return line.matches(REGEX_FOR_LINE_VALIDATION);
     }
 
-    public static boolean isFileValid(String filePath) {
-        if (filePath == null) {
-            return false;
-        }
-        File file = new File(filePath);
-        return file.exists() && file.length() != 0;
-    }
 }
