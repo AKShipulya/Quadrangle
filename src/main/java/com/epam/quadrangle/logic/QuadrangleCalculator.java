@@ -8,11 +8,10 @@ import org.apache.logging.log4j.Logger;
 
 public class QuadrangleCalculator {
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final String ERROR_MESSAGE = "Invalid Quadrangle!";
 
     public double calculateQuadrangleArea(Quadrangle Quadrangle) throws QuadrangleException {
         if (Quadrangle == null) {
-            throw new QuadrangleException(ERROR_MESSAGE);
+            throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point pointA = Quadrangle.getPointA();
         Point pointB = Quadrangle.getPointB();
@@ -30,7 +29,7 @@ public class QuadrangleCalculator {
 
     public double calculateQuadranglePerimeter(Quadrangle Quadrangle) throws QuadrangleException {
         if (Quadrangle == null) {
-            throw new QuadrangleException(ERROR_MESSAGE);
+            throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point pointA = Quadrangle.getPointA();
         Point pointB = Quadrangle.getPointB();
@@ -48,7 +47,7 @@ public class QuadrangleCalculator {
 
     public boolean isSidesParallel(Quadrangle Quadrangle) throws QuadrangleException {
         if (Quadrangle == null) {
-            throw new QuadrangleException(ERROR_MESSAGE);
+            throw new QuadrangleException("Invalid Quadrangle!");
         }
         double threshold = 1e-10;
         boolean result;
@@ -67,7 +66,7 @@ public class QuadrangleCalculator {
 
     public boolean isSquare(Quadrangle Quadrangle) throws QuadrangleException {
         if (Quadrangle == null) {
-            throw new QuadrangleException(ERROR_MESSAGE);
+            throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point pointA = Quadrangle.getPointA();
         Point pointB = Quadrangle.getPointB();
@@ -88,7 +87,7 @@ public class QuadrangleCalculator {
 
     public boolean isRectangle(Quadrangle Quadrangle) throws QuadrangleException {
         if (Quadrangle == null) {
-            throw new QuadrangleException(ERROR_MESSAGE);
+            throw new QuadrangleException("Invalid Quadrangle!");
         }
         Point pointA = Quadrangle.getPointA();
         Point pointB = Quadrangle.getPointB();
