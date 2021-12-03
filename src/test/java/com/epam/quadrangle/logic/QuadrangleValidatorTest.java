@@ -2,6 +2,7 @@ package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.Quadrangle;
+import com.epam.quadrangle.entity.QuadrangleObservable;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class QuadrangleValidatorTest {
     public void testIsValidShouldValidateParameters() {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
-        Quadrangle quadrangle = new Quadrangle(new Point(10.0, 10.0), new Point(10.0, 40.0),
+        Quadrangle quadrangle = new QuadrangleObservable(1L, new Point(10.0, 10.0), new Point(10.0, 40.0),
                 new Point(60.0, 40.0), new Point(60.0, 10.0));
         //when
         boolean actual = validator.isValid(quadrangle);
@@ -23,7 +24,7 @@ public class QuadrangleValidatorTest {
     public void testIsValidShouldNotValidateParameters() {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
-        Quadrangle quadrangle = new Quadrangle(new Point(11.0, 10.0), new Point(10.0, 40.0),
+        Quadrangle quadrangle = new QuadrangleObservable(1L, new Point(11.0, 10.0), new Point(10.0, 40.0),
                 new Point(60.0, 40.0), new Point(60.0, 10.0));
         //when
         boolean actual = validator.isValid(quadrangle);
