@@ -16,9 +16,6 @@ public class DataReader {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public List<String> readValidLinesFromFile(String filePath) throws DataException, IOException {
-        if (!QuadrangleLineValidator.isFileValid(filePath)) {
-            throw new DataException("Invalid file or file path!");
-        }
 
         Path path = Paths.get(filePath);
         BufferedReader bufferedReader = Files.newBufferedReader(path);
