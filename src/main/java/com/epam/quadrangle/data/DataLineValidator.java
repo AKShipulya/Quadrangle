@@ -1,10 +1,18 @@
 package com.epam.quadrangle.data;
 
+import com.epam.quadrangle.exception.DataException;
+
 public class DataLineValidator {
     private static final String REGEX_FOR_LINE_VALIDATION = "([-]?\\d+\\.\\d+\\s+){7}([-]?\\d+\\.\\d+)";
+    private static final String DELIMITER_REGEX = "\\s+";
+    private static final int COORDINATE_NUMBERS = 8;
 
-    public boolean isValid(String line) {
-        return line.matches(REGEX_FOR_LINE_VALIDATION);
+    public boolean isValid(String line) throws DataException {
+        if (line == null || line.isEmpty()) {
+            throw new DataException("Invalid line of data!");
+        }
+        String[] pointsFromLine = line.split(DELIMITER_REGEX);
+        return line.matches(REGEX_FOR_LINE_VALIDATION) && pointsFromLine.length == COORDINATE_NUMBERS;
     }
 
 }

@@ -1,29 +1,17 @@
 package com.epam.quadrangle.entity;
 
-import com.epam.quadrangle.util.QuadrangleIdGenerator;
-
 public class Quadrangle {
 
-    private long QuadrangleId;
     private Point pointA;
     private Point pointB;
     private Point pointC;
     private Point pointD;
 
     public Quadrangle(Point pointA, Point pointB, Point pointC, Point pointD) {
-        this.QuadrangleId = QuadrangleIdGenerator.generateId();
         this.pointA = pointA;
         this.pointB = pointB;
         this.pointC = pointC;
         this.pointD = pointD;
-    }
-
-    public long getQuadrangleId() {
-        return QuadrangleId;
-    }
-
-    public void setQuadrangleId(long quadrangleId) {
-        this.QuadrangleId = quadrangleId;
     }
 
     public Point getPointA() {
@@ -93,7 +81,6 @@ public class Quadrangle {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Quadrangle{");
-        sb.append("idGenerator=").append(QuadrangleId);
         sb.append(", pointA=").append(pointA);
         sb.append(", pointB=").append(pointB);
         sb.append(", pointC=").append(pointC);

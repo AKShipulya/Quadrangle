@@ -95,6 +95,7 @@ public class QuadrangleCalculator {
         boolean isParallel = isSidesParallel(Quadrangle);
         boolean isLinesNotSameLength;
         boolean result;
+        // TODO: 03.12.2021 set variables direct with data!!!
         double ab, bc;
 
         ab = Math.sqrt(Math.pow((pointA.getPointX() - pointB.getPointX()), 2) + Math.pow((pointA.getPointY() - pointB.getPointY()), 2));

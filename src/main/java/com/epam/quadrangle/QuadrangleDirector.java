@@ -33,11 +33,14 @@ public class QuadrangleDirector {
 
         List<Quadrangle> quadrangles = new ArrayList<>();
 
-        for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
-            List<Double> parsedLinesToDouble = parser.parseToCoordinates(pointsLine);
-            Quadrangle quadrangle = creator.createQuadrangle(parsedLinesToDouble);
-            // TODO: 03.12.2021 validation of the created quadrangle
-            quadrangles.add(quadrangle);
+        try {
+            for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
+                List<Double> parsedLinesToDouble = parser.parseToCoordinates(pointsLine);
+                Quadrangle quadrangle = creator.createQuadrangle(parsedLinesToDouble);
+                quadrangles.add(quadrangle);
+            }
+        } catch (NumberFormatException e) {
+            throw new DataException(e);
         }
         LOGGER.info("Quadrangles were created successfully!");
         return quadrangles;

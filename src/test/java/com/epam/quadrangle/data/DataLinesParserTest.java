@@ -21,7 +21,7 @@ public class DataLinesParserTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = DataException.class)
+    @Test(expected = NumberFormatException.class)
     public void testParseToCoordinatesShouldNotParseInvalidLine() throws DataException {
         //given
         DataLinesParser parser = new DataLinesParser();
