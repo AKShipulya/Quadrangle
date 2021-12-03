@@ -18,7 +18,7 @@ public class DataReaderTest {
         DataReader reader = new DataReader(validator);
         String filePath = "src/test/resources/testCoordinates.txt";
         List<String> expected = Arrays.asList("10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0",
-                                            "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0");
+                "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0");
         //when
         List<String> actual = reader.readValidLinesFromFile(filePath);
         //then

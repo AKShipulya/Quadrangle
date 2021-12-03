@@ -41,7 +41,7 @@ public class QuadrangleCalculator {
         bc = Math.sqrt(Math.pow((pointC.getPointX() - pointB.getPointX()), 2) + Math.pow((pointC.getPointY() - pointB.getPointY()), 2));
 
         result = 2 * ab + 2 * bc;
-        LOGGER.info( "Quadrangle calculated perimeter is: {}", result);
+        LOGGER.info("Quadrangle calculated perimeter is: {}", result);
         return result;
     }
 

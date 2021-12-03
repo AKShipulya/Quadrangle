@@ -12,7 +12,7 @@ public class QuadrangleValidatorTest {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
         Quadrangle quadrangle = new Quadrangle(new Point(10.0, 10.0), new Point(10.0, 40.0),
-                                                new Point(60.0, 40.0), new Point(60.0, 10.0));
+                new Point(60.0, 40.0), new Point(60.0, 10.0));
         //when
         boolean actual = validator.isValid(quadrangle);
         //then
@@ -24,7 +24,7 @@ public class QuadrangleValidatorTest {
         //given
         QuadrangleValidator validator = new QuadrangleValidator();
         Quadrangle quadrangle = new Quadrangle(new Point(11.0, 10.0), new Point(10.0, 40.0),
-                                                new Point(60.0, 40.0), new Point(60.0, 10.0));
+                new Point(60.0, 40.0), new Point(60.0, 10.0));
         //when
         boolean actual = validator.isValid(quadrangle);
         //then
