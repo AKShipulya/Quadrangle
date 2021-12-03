@@ -106,4 +106,9 @@ public class QuadrangleService {
         LOGGER.info("Quadrangle is a rectangle: {}", result);
         return result;
     }
+
+    public boolean isQuadrangleCrossingAxis(Quadrangle quadrangle, Double distance, Axis axis) {
+        // TODO: 01.12.2021 create this method
+        return true;
+    }
 }

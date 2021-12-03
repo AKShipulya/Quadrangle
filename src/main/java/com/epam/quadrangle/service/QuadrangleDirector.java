@@ -33,8 +33,8 @@ public class QuadrangleDirector {
 
         for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
             List<Double> parsedLinesToDouble = parser.parseToCoordinates(pointsLine);
-
-            quadrangles.add(creator.createQuadrangle(parsedLinesToDouble));
+            Quadrangle quadrangle = creator.createQuadrangle(parsedLinesToDouble);
+            quadrangles.add(quadrangle);
         }
         LOGGER.info("Quadrangles were created successfully!");
         return quadrangles;

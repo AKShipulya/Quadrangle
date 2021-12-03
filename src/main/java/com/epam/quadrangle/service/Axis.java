@@ -1,2 +1,8 @@
-package com.epam.quadrangle.service;public enum Axis {
+package com.epam.quadrangle.service;
+
+public enum Axis {
+
+    OX,
+    OY
+
 }
