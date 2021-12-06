@@ -22,7 +22,6 @@ public class Test {
         DataLinesParser parser = new DataLinesParser();
         QuadrangleCreator creator = new QuadrangleCreator(validator, parser);
 
-
         QuadrangleDirector director = new QuadrangleDirector(reader, creator);
 
         director.read("src/main/resources/coordinates.txt");

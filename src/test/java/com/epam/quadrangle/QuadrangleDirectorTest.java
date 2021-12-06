@@ -1,13 +1,11 @@
 package com.epam.quadrangle;
 
-import com.epam.quadrangle.data.DataLinesParser;
 import com.epam.quadrangle.data.DataReader;
 import com.epam.quadrangle.data.QuadrangleLineValidator;
 import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.exception.QuadrangleException;
 import com.epam.quadrangle.logic.QuadrangleCreator;
-import com.epam.quadrangle.logic.QuadrangleValidator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -21,7 +19,7 @@ import static org.mockito.Mockito.*;
 
 public class QuadrangleDirectorTest {
     private final static String FILE_PATH = "testPath";
-    private final static String VALID_LINE = "1 2 3";
+    private final static List<String> LIST_VALID_LINE = Arrays.asList("1 2 3");
     private final static String INVALID_LINE = "3 2 1";
     private final static String VALID_COORDINATES_LINE = "1 2 3";
     private final static QuadrangleObservable QUADRANGLE = Mockito.mock(QuadrangleObservable.class);
@@ -30,10 +28,10 @@ public class QuadrangleDirectorTest {
     public void testReadShouldCreateWhenValid() throws DataException, IOException, QuadrangleException {
         //given
         DataReader reader = Mockito.mock(DataReader.class);
-        when(reader.readValidLinesFromFile(anyString())).thenReturn(Arrays.asList(VALID_LINE));
+        when(reader.readValidLinesFromFile(FILE_PATH)).thenReturn(LIST_VALID_LINE);
 
         QuadrangleLineValidator lineValidator = Mockito.mock(QuadrangleLineValidator.class);
-        when(lineValidator.isValid(VALID_LINE)).thenReturn(true);
+        when(lineValidator.isValid(VALID_COORDINATES_LINE)).thenReturn(true);
 
         QuadrangleCreator creator = Mockito.mock(QuadrangleCreator.class);
         when(creator.createQuadrangle(VALID_COORDINATES_LINE)).thenReturn(QUADRANGLE);
