@@ -1,6 +1,5 @@
 package com.epam.quadrangle.data;
 
-
 import com.epam.quadrangle.exception.DataException;
 import org.junit.Assert;
 import org.junit.Test;

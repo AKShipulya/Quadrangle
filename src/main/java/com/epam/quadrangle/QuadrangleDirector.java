@@ -18,12 +18,10 @@ public class QuadrangleDirector {
 
     private final DataReader reader;
     private final QuadrangleCreator creator;
-    private final QuadrangleValidator validator;
 
-    public QuadrangleDirector(DataReader reader, QuadrangleCreator creator, QuadrangleValidator validator) {
+    public QuadrangleDirector(DataReader reader, QuadrangleCreator creator) {
         this.reader = reader;
         this.creator = creator;
-        this.validator = validator;
     }
 
     public List<QuadrangleObservable> read(String filePath) throws DataException, QuadrangleException, IOException {
@@ -35,7 +33,6 @@ public class QuadrangleDirector {
 
         for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
             QuadrangleObservable quadrangle = creator.createQuadrangle(pointsLine);
-            validator.isValid(quadrangle);
             quadrangles.add(quadrangle);
         }
 

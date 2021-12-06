@@ -7,9 +7,6 @@ import com.epam.quadrangle.exception.QuadrangleException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class QuadrangleCreatorTest {
 
     @Test

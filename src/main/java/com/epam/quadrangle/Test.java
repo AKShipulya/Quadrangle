@@ -13,14 +13,17 @@ import java.io.IOException;
 public class Test {
 
     public static void main(String[] args) throws DataException, IOException, QuadrangleException {
-        QuadrangleValidator validator = new QuadrangleValidator();
+        //reader
         QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
-        DataLinesParser parser = new DataLinesParser();
-
-        QuadrangleCreator creator = new QuadrangleCreator(validator, parser);
         DataReader reader = new DataReader(lineValidator);
 
-        QuadrangleDirector director = new QuadrangleDirector(reader, creator, validator);
+        //creator
+        QuadrangleValidator validator = new QuadrangleValidator();
+        DataLinesParser parser = new DataLinesParser();
+        QuadrangleCreator creator = new QuadrangleCreator(validator, parser);
+
+
+        QuadrangleDirector director = new QuadrangleDirector(reader, creator);
 
         director.read("src/main/resources/coordinates.txt");
     }

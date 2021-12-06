@@ -38,10 +38,7 @@ public class QuadrangleDirectorTest {
         QuadrangleCreator creator = Mockito.mock(QuadrangleCreator.class);
         when(creator.createQuadrangle(VALID_COORDINATES_LINE)).thenReturn(QUADRANGLE);
 
-        QuadrangleValidator validator = Mockito.mock(QuadrangleValidator.class);
-        when(validator.isValid(QUADRANGLE)).thenReturn(true);
-
-        QuadrangleDirector director = new QuadrangleDirector(reader, creator, validator);
+        QuadrangleDirector director = new QuadrangleDirector(reader, creator);
 
         //when
         List<QuadrangleObservable> quadrangles = director.read(FILE_PATH);
