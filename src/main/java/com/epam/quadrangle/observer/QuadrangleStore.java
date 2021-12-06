@@ -3,11 +3,14 @@ package com.epam.quadrangle.observer;
 import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.exception.QuadrangleException;
 import com.epam.quadrangle.logic.QuadrangleCalculator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class QuadrangleStore implements Observer {
+    private final static Logger LOGGER = LogManager.getLogger();
 
     private static QuadrangleStore instance = new QuadrangleStore();
 
@@ -18,10 +21,10 @@ public class QuadrangleStore implements Observer {
 
     }
 
-    // TODO: 03.12.2021 add logger if needed!
     public void update(QuadrangleObservable quadrangle) throws QuadrangleException {
         double area = CALCULATOR.calculateQuadrangleArea(quadrangle);
         double perimeter = CALCULATOR.calculateQuadranglePerimeter(quadrangle);
+        LOGGER.info("Parameters were updated successfully!");
         PARAMETERS.put(quadrangle.getID(), new Parameters(area, perimeter));
     }
 

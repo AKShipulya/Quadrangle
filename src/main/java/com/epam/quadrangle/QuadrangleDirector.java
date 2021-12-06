@@ -5,7 +5,6 @@ import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.data.DataReader;
 import com.epam.quadrangle.exception.QuadrangleException;
 import com.epam.quadrangle.logic.QuadrangleCreator;
-import com.epam.quadrangle.logic.QuadrangleValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

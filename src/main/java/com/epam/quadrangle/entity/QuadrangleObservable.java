@@ -14,7 +14,6 @@ public class QuadrangleObservable extends Quadrangle implements Observable {
 
     public QuadrangleObservable(Long ID, Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
-
         this.ID = ID;
     }
 

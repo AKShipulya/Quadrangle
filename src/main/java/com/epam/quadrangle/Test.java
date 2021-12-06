@@ -13,11 +13,11 @@ import java.io.IOException;
 public class Test {
 
     public static void main(String[] args) throws DataException, IOException, QuadrangleException {
-        //reader
+        //reader for director constructor
         QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
         DataReader reader = new DataReader(lineValidator);
 
-        //creator
+        //creator for director constructor
         QuadrangleValidator validator = new QuadrangleValidator();
         DataLinesParser parser = new DataLinesParser();
         QuadrangleCreator creator = new QuadrangleCreator(validator, parser);

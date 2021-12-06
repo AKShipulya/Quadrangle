@@ -79,6 +79,7 @@ public class QuadrangleCalculator {
                 Math.pow((pointA.getPointY() - pointB.getPointY()), 2));
         double bc = Math.sqrt(Math.pow((pointB.getPointX() - pointC.getPointX()), 2) +
                 Math.pow((pointB.getPointY() - pointC.getPointY()), 2));
+
         boolean isLinesSameLength = ab == bc;
         boolean result = isParallel && isLinesSameLength;
 
