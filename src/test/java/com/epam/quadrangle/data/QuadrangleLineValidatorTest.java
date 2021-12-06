@@ -18,7 +18,7 @@ public class QuadrangleLineValidatorTest {
     }
 
     @Test
-    public void testIsValidShouldNotValidateLine() throws DataException {
+    public void testIsValidShouldNotValidateWrongLine() throws DataException {
         //given
         String line = "10.0 11.0 12.0 13.f 14.0 15.0 16.0 17.0";
         QuadrangleLineValidator validator = new QuadrangleLineValidator();
@@ -27,5 +27,4 @@ public class QuadrangleLineValidatorTest {
         //then
         Assert.assertFalse(actual);
     }
-
 }

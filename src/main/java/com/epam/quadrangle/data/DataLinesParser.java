@@ -21,7 +21,7 @@ public class DataLinesParser {
             coordinatesPoints.add(parsedPoint);
         }
 
-        LOGGER.info("Lines were parsed successfully!");
+        LOGGER.info("Lines were parsed successfully! {}", coordinatesPoints);
         return coordinatesPoints;
     }
 }

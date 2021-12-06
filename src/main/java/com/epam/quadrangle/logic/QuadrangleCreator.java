@@ -1,38 +1,44 @@
 package com.epam.quadrangle.logic;
 
-import com.epam.quadrangle.entity.Quadrangle;
+import com.epam.quadrangle.data.DataLinesParser;
 import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
     private final QuadrangleValidator QUADRANGLE_VALIDATOR;
+    private final DataLinesParser PARSER;
 
     private long quadrangleId;
 
-    public QuadrangleCreator(QuadrangleValidator quadrangleValidator) {
+    public QuadrangleCreator(QuadrangleValidator quadrangleValidator, DataLinesParser parser) {
         this.QUADRANGLE_VALIDATOR = quadrangleValidator;
+        this.PARSER = parser;
     }
 
-    public Quadrangle createQuadrangle(List<Double> coordinates) throws QuadrangleException {
+    public QuadrangleObservable createQuadrangle(String coordinatesList) throws QuadrangleException {
 
-        Long ID = idGenerator();
-        Point pointA = new Point(coordinates.get(0), coordinates.get(1));
-        Point pointB = new Point(coordinates.get(2), coordinates.get(3));
-        Point pointC = new Point(coordinates.get(4), coordinates.get(5));
-        Point pointD = new Point(coordinates.get(6), coordinates.get(7));
+        List<Double> parsedLinesToDouble = PARSER.parseToCoordinates(coordinatesList);
 
-        Quadrangle quadrangle = new QuadrangleObservable(ID, pointA, pointB, pointC, pointD);
-        if (!QUADRANGLE_VALIDATOR.isValid(quadrangle)) {
-            throw new QuadrangleException("Quadrangle cannot be created!");
-        }
+            Long ID = idGenerator();
+            Point pointA = new Point(parsedLinesToDouble.get(0), parsedLinesToDouble.get(1));
+            Point pointB = new Point(parsedLinesToDouble.get(2), parsedLinesToDouble.get(3));
+            Point pointC = new Point(parsedLinesToDouble.get(4), parsedLinesToDouble.get(5));
+            Point pointD = new Point(parsedLinesToDouble.get(6), parsedLinesToDouble.get(7));
 
-        LOGGER.info("Quadrangle was created successfully!");
+            QuadrangleObservable quadrangle = new QuadrangleObservable(ID, pointA, pointB, pointC, pointD);
+
+            if (!QUADRANGLE_VALIDATOR.isValid(quadrangle)) {
+                throw new QuadrangleException("Quadrangle cannot be created!");
+            }
+
+        LOGGER.info("Quadrangle was created successfully! ID: {}", quadrangle.getID());
         return quadrangle;
     }
 
