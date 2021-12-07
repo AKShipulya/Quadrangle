@@ -13,7 +13,9 @@ public class QuadrangleCalculatorTest {
     private final QuadrangleLineValidator LINE_VALIDATOR = new QuadrangleLineValidator();
     private final DataLinesParser PARSER = new DataLinesParser(LINE_VALIDATOR);
     private final QuadrangleCreator CREATOR = new QuadrangleCreator(VALIDATOR, PARSER);
+
     private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
+
     private static final String RECTANGLE_COORDINATES_POINTS = "10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0";
     private static final String SQUARE_COORDINATES_POINTS = "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0";
     private static final String IRREGULAR_RECTANGLE_COORDINATES_POINTS = "10.0 10.0 15.0 40.0 35.0 40.0 40.0 10.0";
