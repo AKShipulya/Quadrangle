@@ -3,6 +3,7 @@ package com.epam.quadrangle.logic;
 import com.epam.quadrangle.data.DataLinesParser;
 import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.QuadrangleObservable;
+import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +23,7 @@ public class QuadrangleCreator {
         this.PARSER = parser;
     }
 
-    public QuadrangleObservable createQuadrangle(String coordinatesList) throws QuadrangleException {
+    public QuadrangleObservable createQuadrangle(String coordinatesList) throws QuadrangleException, DataException {
 
         List<Double> parsedLinesToDouble = PARSER.parseToCoordinates(coordinatesList);
 

@@ -14,12 +14,12 @@ public class Test {
 
     public static void main(String[] args) throws DataException, IOException, QuadrangleException {
         //reader for director constructor
-        QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
-        DataReader reader = new DataReader(lineValidator);
+        DataReader reader = new DataReader();
 
         //creator for director constructor
         QuadrangleValidator validator = new QuadrangleValidator();
-        DataLinesParser parser = new DataLinesParser();
+        QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
+        DataLinesParser parser = new DataLinesParser(lineValidator);
         QuadrangleCreator creator = new QuadrangleCreator(validator, parser);
 
         QuadrangleDirector director = new QuadrangleDirector(reader, creator);

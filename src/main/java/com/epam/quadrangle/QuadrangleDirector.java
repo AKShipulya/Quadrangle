@@ -23,7 +23,7 @@ public class QuadrangleDirector {
         this.creator = creator;
     }
 
-    public List<QuadrangleObservable> read(String filePath) throws DataException, QuadrangleException, IOException {
+    public List<QuadrangleObservable> read(String filePath) throws DataException, IOException, QuadrangleException {
         if (filePath == null || filePath.isEmpty()) {
             throw new DataException("Invalid path to file with data");
         }

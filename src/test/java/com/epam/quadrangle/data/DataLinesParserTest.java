@@ -1,5 +1,6 @@
 package com.epam.quadrangle.data;
 
+import com.epam.quadrangle.exception.DataException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,9 +10,10 @@ import java.util.List;
 public class DataLinesParserTest {
 
     @Test
-    public void testParseToCoordinatesShouldReturnValidData() {
+    public void testParseToCoordinatesShouldReturnValidData() throws DataException {
         //given
-        DataLinesParser parser = new DataLinesParser();
+        QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
+        DataLinesParser parser = new DataLinesParser(lineValidator);
         String testLine = "10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0";
         List<Double> expected = Arrays.asList(10.0, 10.0, 10.0, 40.0, 60.0, 40.0, 60.0, 10.0);
         //when
@@ -20,10 +22,11 @@ public class DataLinesParserTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = NumberFormatException.class)
-    public void testParseToCoordinatesShouldNotParseInvalidLine() {
+    @Test(expected = DataException.class)
+    public void testParseToCoordinatesShouldNotParseInvalidLine() throws DataException {
         //given
-        DataLinesParser parser = new DataLinesParser();
+        QuadrangleLineValidator lineValidator = new QuadrangleLineValidator();
+        DataLinesParser parser = new DataLinesParser(lineValidator);
         String testLine = "10.0 10.0 10.0 40.0 60.0 4f.0 60.0 10.0";
         //when
         parser.parseToCoordinates(testLine);

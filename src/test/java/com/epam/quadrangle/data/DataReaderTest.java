@@ -13,8 +13,7 @@ public class DataReaderTest {
     @Test
     public void testReadValidLinesFromFileShouldReadValidLines() throws DataException, IOException {
         //given
-        QuadrangleLineValidator validator = new QuadrangleLineValidator();
-        DataReader reader = new DataReader(validator);
+        DataReader reader = new DataReader();
         String filePath = "src/test/resources/testCoordinates.txt";
         List<String> expected = Arrays.asList("10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0",
                 "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0");
@@ -24,12 +23,11 @@ public class DataReaderTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = DataException.class)
+    @Test(expected = IOException.class)
     public void testReadValidLinesFromFileShouldNotReadLines() throws DataException, IOException {
         //given
-        QuadrangleLineValidator validator = new QuadrangleLineValidator();
-        DataReader reader = new DataReader(validator);
-        String filePath = "src/test/resources/testInvalidCoordinates.txt";
+        DataReader reader = new DataReader();
+        String filePath = "/1/1/1.tst";
         //when
         reader.readValidLinesFromFile(filePath);
     }

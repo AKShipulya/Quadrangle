@@ -1,14 +1,17 @@
 package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.data.DataLinesParser;
+import com.epam.quadrangle.data.QuadrangleLineValidator;
 import com.epam.quadrangle.entity.QuadrangleObservable;
+import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.exception.QuadrangleException;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class QuadrangleCalculatorTest {
     private final QuadrangleValidator VALIDATOR = new QuadrangleValidator();
-    private final DataLinesParser PARSER = new DataLinesParser();
+    private final QuadrangleLineValidator LINE_VALIDATOR = new QuadrangleLineValidator();
+    private final DataLinesParser PARSER = new DataLinesParser(LINE_VALIDATOR);
     private final QuadrangleCreator CREATOR = new QuadrangleCreator(VALIDATOR, PARSER);
     private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
     private static final String RECTANGLE_COORDINATES_POINTS = "10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0";
@@ -16,7 +19,7 @@ public class QuadrangleCalculatorTest {
     private static final String IRREGULAR_RECTANGLE_COORDINATES_POINTS = "10.0 10.0 15.0 40.0 35.0 40.0 40.0 10.0";
 
     @Test
-    public void testCalculateQuadrangleAreaShouldReturnsValidValue() throws QuadrangleException {
+    public void testCalculateQuadrangleAreaShouldReturnsValidValue() throws QuadrangleException, DataException {
         //given
         QuadrangleObservable quadrangle = CREATOR.createQuadrangle(RECTANGLE_COORDINATES_POINTS);
         double expected = 1500.0;
@@ -27,7 +30,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testCalculateQuadranglePerimeterShouldReturnsValidValue() throws QuadrangleException {
+    public void testCalculateQuadranglePerimeterShouldReturnsValidValue() throws QuadrangleException, DataException {
         //given
         QuadrangleObservable quadrangle = CREATOR.createQuadrangle(RECTANGLE_COORDINATES_POINTS);
         double expected = 160.00;
@@ -38,7 +41,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testIsSquareShouldReturnTrueIfShapeSquare() throws QuadrangleException {
+    public void testIsSquareShouldReturnTrueIfShapeSquare() throws QuadrangleException, DataException {
         //given
         QuadrangleObservable quadrangle = CREATOR.createQuadrangle(SQUARE_COORDINATES_POINTS);
         //when
@@ -48,7 +51,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testIsRegularRectangleShouldReturnTrueIfShapeRectangle() throws QuadrangleException {
+    public void testIsRegularRectangleShouldReturnTrueIfShapeRectangle() throws QuadrangleException, DataException {
         //given
         QuadrangleObservable quadrangle = CREATOR.createQuadrangle(RECTANGLE_COORDINATES_POINTS);
         //when
@@ -58,7 +61,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testIsRegularRectangleShouldReturnFalseIfShapeIrregularRectangle() throws QuadrangleException {
+    public void testIsRegularRectangleShouldReturnFalseIfShapeIrregularRectangle() throws QuadrangleException, DataException {
         //given
         QuadrangleObservable quadrangle = CREATOR.createQuadrangle(IRREGULAR_RECTANGLE_COORDINATES_POINTS);
         //when
