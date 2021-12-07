@@ -13,12 +13,11 @@ public class QuadrangleCalculatorTest {
     private final QuadrangleLineValidator LINE_VALIDATOR = new QuadrangleLineValidator();
     private final DataLinesParser PARSER = new DataLinesParser(LINE_VALIDATOR);
     private final QuadrangleCreator CREATOR = new QuadrangleCreator(VALIDATOR, PARSER);
-
     private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
 
     private static final String RECTANGLE_COORDINATES_POINTS = "10.0 10.0 10.0 40.0 60.0 40.0 60.0 10.0";
-    private static final String SQUARE_COORDINATES_POINTS = "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0";
-    private static final String IRREGULAR_RECTANGLE_COORDINATES_POINTS = "10.0 10.0 15.0 40.0 35.0 40.0 40.0 10.0";
+
+
 
     @Test
     public void testCalculateQuadrangleAreaShouldReturnsValidValue() throws QuadrangleException, DataException {
@@ -45,7 +44,8 @@ public class QuadrangleCalculatorTest {
     @Test
     public void testIsSquareShouldReturnTrueIfShapeSquare() throws QuadrangleException, DataException {
         //given
-        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(SQUARE_COORDINATES_POINTS);
+        String squareCoordinatesPoints = "10.0 10.0 10.0 40.0 40.0 40.0 40.0 10.0";
+        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(squareCoordinatesPoints);
         //when
         boolean actual = CALCULATOR.isSquare(quadrangle);
         //then
@@ -65,9 +65,32 @@ public class QuadrangleCalculatorTest {
     @Test
     public void testIsRegularRectangleShouldReturnFalseIfShapeIrregularRectangle() throws QuadrangleException, DataException {
         //given
-        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(IRREGULAR_RECTANGLE_COORDINATES_POINTS);
+        String irregularRectangleCoordinatesPoints = "10.0 10.0 15.0 40.0 35.0 40.0 40.0 10.0";
+        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(irregularRectangleCoordinatesPoints);
         //when
         boolean actual = CALCULATOR.isRegularRectangle(quadrangle);
+        //then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void testArePointsLocationAtOneLineShouldReturnTrueWhenPointsNotAtLine() throws QuadrangleException, DataException {
+        //given
+        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(RECTANGLE_COORDINATES_POINTS);
+        //when
+        boolean actual = CALCULATOR.arePointsLocationAtOneLine(quadrangle);
+        //then
+        Assert.assertTrue(actual);
+    }
+
+    // FIXME: 07.12.2021
+    @Test
+    public void testArePointsLocationAtOneLineShouldReturnFalseWhenPointsAtLine() throws QuadrangleException, DataException {
+        //given
+        String squareCoordinatesPoints = "10.0 10.0 10.0 40.0 10.0 15.0 40.0 10.0";
+        QuadrangleObservable quadrangle = CREATOR.createQuadrangle(RECTANGLE_COORDINATES_POINTS);
+        //when
+        boolean actual = CALCULATOR.arePointsLocationAtOneLine(quadrangle);
         //then
         Assert.assertFalse(actual);
     }

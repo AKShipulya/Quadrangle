@@ -104,4 +104,20 @@ public class QuadrangleCalculator {
         // TODO: 01.12.2021 create this method
         return true;
     }
+
+    // FIXME: 07.12.2021
+    public boolean arePointsLocationAtOneLine(QuadrangleObservable quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
+            throw new QuadrangleException("Invalid Quadrangle!");
+        }
+        Point pointA = quadrangle.getPointA();
+        Point pointB = quadrangle.getPointB();
+        Point pointC = quadrangle.getPointC();
+
+        boolean result = (pointC.getPointX() - pointA.getPointX()) / (pointB.getPointX() - pointA.getPointX()) !=
+                (pointC.getPointY() - pointA.getPointY()) / (pointB.getPointY() - pointA.getPointY());
+
+        LOGGER.info("rectangle points are not located at a one line: {}", result);
+        return result;
+    }
 }
