@@ -5,10 +5,13 @@ import com.epam.quadrangle.repository.specification.Specification;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public interface QuadrangleRepository {
 
     void add(QuadrangleObservable quadrangle);
+
+    void addAll(Map<Long, QuadrangleObservable> quadrangles);
 
     void delete(QuadrangleObservable quadrangle);
 

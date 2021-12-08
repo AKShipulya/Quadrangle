@@ -15,6 +15,11 @@ public class QuadrangleRepositoryImpl implements QuadrangleRepository {
     }
 
     @Override
+    public void addAll(Map<Long, QuadrangleObservable> quadrangles) {
+        store.putAll(quadrangles);
+    }
+
+    @Override
     public void delete(QuadrangleObservable quadrangle) {
         store.remove(quadrangle.getID());
     }
