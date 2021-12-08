@@ -37,6 +37,8 @@ public class QuadrangleRepositoryImpl implements QuadrangleRepository {
 
     @Override
     public List<QuadrangleObservable> sort(Comparator<QuadrangleObservable> comparator) {
-        return null;
+        List<QuadrangleObservable> quadrangles = new ArrayList<>(store.values());
+        quadrangles.sort(comparator);
+        return quadrangles;
     }
 }
