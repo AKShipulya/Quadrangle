@@ -5,16 +5,16 @@ import com.epam.quadrangle.repository.specification.Specification;
 
 public class IdSpecification implements Specification {
 
-    private final Long fromId;
-    private final Long toId;
+    private final Long FROM_ID;
+    private final Long TO_ID;
 
-    public IdSpecification(Long fromId, Long toId) {
-        this.fromId = fromId;
-        this.toId = toId;
+    public IdSpecification(Long FROM_ID, Long TO_ID) {
+        this.FROM_ID = FROM_ID;
+        this.TO_ID = TO_ID;
     }
 
     @Override
     public boolean specified(QuadrangleObservable quadrangle) {
-        return quadrangle.getID() >= fromId && quadrangle.getID() <= toId;
+        return quadrangle.getID() >= FROM_ID && quadrangle.getID() <= TO_ID;
     }
 }

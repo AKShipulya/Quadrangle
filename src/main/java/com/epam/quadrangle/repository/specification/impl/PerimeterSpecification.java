@@ -9,12 +9,12 @@ import org.apache.logging.log4j.Logger;
 
 public class PerimeterSpecification implements Specification {
     private final static Logger LOGGER = LogManager.getLogger();
-    private final double fromPerimeter;
-    private final double toPerimeter;
+    private final double FROM_PERIMETER;
+    private final double TO_PERIMETER;
 
-    public PerimeterSpecification(double fromPerimeter, double toPerimeter) {
-        this.fromPerimeter = fromPerimeter;
-        this.toPerimeter = toPerimeter;
+    public PerimeterSpecification(double FROM_PERIMETER, double TO_PERIMETER) {
+        this.FROM_PERIMETER = FROM_PERIMETER;
+        this.TO_PERIMETER = TO_PERIMETER;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class PerimeterSpecification implements Specification {
         } catch (QuadrangleException e) {
             LOGGER.warn(e);
         }
-        return (Double.compare(perimeter, fromPerimeter) == 1 && Double.compare(perimeter, toPerimeter) == -1);
+        return (Double.compare(perimeter, FROM_PERIMETER) == 1 && Double.compare(perimeter, TO_PERIMETER) == -1);
     }
 }

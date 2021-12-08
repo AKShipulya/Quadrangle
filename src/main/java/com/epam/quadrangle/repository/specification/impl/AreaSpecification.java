@@ -9,12 +9,12 @@ import org.apache.logging.log4j.Logger;
 
 public class AreaSpecification implements Specification {
     private final static Logger LOGGER = LogManager.getLogger();
-    private final double fromArea;
-    private final double toArea;
+    private final double FROM_AREA;
+    private final double TO_AREA;
 
-    public AreaSpecification(double fromArea, double toArea) {
-        this.fromArea = fromArea;
-        this.toArea = toArea;
+    public AreaSpecification(double FROM_AREA, double TO_AREA) {
+        this.FROM_AREA = FROM_AREA;
+        this.TO_AREA = TO_AREA;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class AreaSpecification implements Specification {
         } catch (QuadrangleException e) {
             LOGGER.warn(e);
         }
-        return (Double.compare(area, fromArea) == 1 && Double.compare(area, toArea) == -1);
+        return (Double.compare(area, FROM_AREA) == 1 && Double.compare(area, TO_AREA) == -1);
     }
 }

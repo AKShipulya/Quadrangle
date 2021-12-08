@@ -9,6 +9,7 @@ import com.epam.quadrangle.repository.specification.impl.AreaSpecification;
 import com.epam.quadrangle.repository.specification.impl.FirstCoordinateAreaSpecification;
 import com.epam.quadrangle.repository.specification.impl.IdSpecification;
 import com.epam.quadrangle.repository.impl.QuadrangleRepositoryImpl;
+import com.epam.quadrangle.repository.specification.impl.ProvidedCoordinatesSpecification;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Test {
+public class TestSpecifications {
     public static void main(String[] args) {
         QuadrangleRepository repository = new QuadrangleRepositoryImpl();
         QuadrangleObservable quadrangle = new QuadrangleObservable(3L, new Point(11.01, 10.01), new Point(10.01, 40.01)
@@ -39,9 +40,11 @@ public class Test {
         List<QuadrangleObservable> specifiedQuadranglesById = repository.query(new IdSpecification(1L,200L));
         List<QuadrangleObservable> specifiedQuadranglesByArea = repository.query(new AreaSpecification(1000.00, 1499.00));
         List<QuadrangleObservable> specifiedQuadranglesByCoordinateArea = repository.query(new FirstCoordinateAreaSpecification());
+        List<QuadrangleObservable> specifiedProvidedCoordinatesSpecification =
+                repository.query(new ProvidedCoordinatesSpecification(0, 100,0, 40.20));
 //        System.out.println(specifiedQuadranglesById);
 //        System.out.println(specifiedQuadranglesByArea);
-        System.out.println(specifiedQuadranglesByCoordinateArea);
+        System.out.println(specifiedProvidedCoordinatesSpecification);
 //        System.out.println(specifiedQuadranglesById);
     }
 }
