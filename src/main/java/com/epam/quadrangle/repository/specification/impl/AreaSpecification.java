@@ -25,8 +25,8 @@ public class AreaSpecification implements Specification {
             QuadrangleCalculator calculator = new QuadrangleCalculator();
             area = calculator.calculateQuadrangleArea(quadrangle);
         } catch (QuadrangleException e) {
-            LOGGER.warn(e);
+            LOGGER.error(e);
         }
-        return (Double.compare(area, FROM_AREA) == 1 && Double.compare(area, TO_AREA) == -1);
+        return area >= FROM_AREA && area <= TO_AREA;
     }
 }

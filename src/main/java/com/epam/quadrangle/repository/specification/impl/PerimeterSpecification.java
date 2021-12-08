@@ -27,6 +27,6 @@ public class PerimeterSpecification implements Specification {
         } catch (QuadrangleException e) {
             LOGGER.warn(e);
         }
-        return (Double.compare(perimeter, FROM_PERIMETER) == 1 && Double.compare(perimeter, TO_PERIMETER) == -1);
+        return perimeter >= FROM_PERIMETER && perimeter <= TO_PERIMETER;
     }
 }
