@@ -30,12 +30,14 @@ public class QuadrangleDirector {
 
         List<QuadrangleObservable> quadrangles = new ArrayList<>();
 
-        for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
-            QuadrangleObservable quadrangle = creator.createQuadrangle(pointsLine);
-            quadrangles.add(quadrangle);
+        try {
+            for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
+                QuadrangleObservable quadrangle = creator.createQuadrangle(pointsLine);
+                quadrangles.add(quadrangle);
+            }
+        }catch (DataException | QuadrangleException | IOException e) {
+            LOGGER.warn(e);
         }
-
-        LOGGER.info("Quadrangles were added in list successfully!");
         return quadrangles;
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.quadrangle.specification;
+package com.epam.quadrangle.repository.specification;
 
 import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.QuadrangleObservable;
@@ -45,13 +45,16 @@ public class QuadrangleSpecificationTest {
         Assert.assertEquals(expected, actual);
     }
 
-    // TODO: 08.12.2021 create this test after DistanceSpecification fix
     //DistanceSpecification
     @Test
     public void testDistanceSpecificationShouldReturnSpecifiedQuadrangles() {
         //given
+        List<QuadrangleObservable> expected = Arrays.asList(QUADRANGLE_3, QUADRANGLE_2, QUADRANGLE_1);
         //when
+        List<QuadrangleObservable> actual = REPOSITORY.query(new DistanceSpecification(0, 100,
+                0, 100));
         //then
+        Assert.assertEquals(expected, actual);
     }
 
     //FirstCoordinateAreaSpecification

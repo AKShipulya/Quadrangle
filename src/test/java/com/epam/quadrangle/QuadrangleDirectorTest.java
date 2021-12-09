@@ -19,7 +19,6 @@ import static org.mockito.Mockito.*;
 public class QuadrangleDirectorTest {
     private final static String FILE_PATH = "testPath";
     private final static List<String> LIST_VALID_LINE = Arrays.asList("1 2 3");
-    private final static String INVALID_LINE = "3 2 1";
     private final static String VALID_COORDINATES_LINE = "1 2 3";
     private final static QuadrangleObservable QUADRANGLE = Mockito.mock(QuadrangleObservable.class);
 
@@ -47,33 +46,5 @@ public class QuadrangleDirectorTest {
         verify(reader, times(1)).readValidLinesFromFile(FILE_PATH);
         verify(creator, times(1)).createQuadrangle(VALID_COORDINATES_LINE);
         verifyNoMoreInteractions(reader, creator);
-
     }
-
-//    @Test
-//    public void testReadShouldNotCreateWhenInvalid() throws DataException, IOException, QuadrangleException {
-//        DataReader reader = Mockito.mock(DataReader.class);
-//        when(reader.readValidLinesFromFile(anyString())).thenReturn(Arrays.asList(INVALID_LINE));
-//
-//        DataLinesParser parser = Mockito.mock(DataLinesParser.class);
-//
-//        QuadrangleCreator creator = Mockito.mock(QuadrangleCreator.class);
-//
-//        QuadrangleValidator validator = Mockito.mock(QuadrangleValidator.class);
-//        when(validator.isValid(QUADRANGLE)).thenReturn(false);
-//
-//        QuadrangleDirector director = new QuadrangleDirector(reader, parser, creator, validator);
-//
-//        //when
-//        List<Quadrangle> quadrangles = director.read(FILE_PATH);
-//
-//        //then
-//        Assert.assertEquals(0, quadrangles.size());
-//
-//        verify(reader, times(0)).readValidLinesFromFile(FILE_PATH);
-//        verify(parser, times(0)).parseToCoordinates(VALID_LINE);
-//        verify(creator, times(0)).createQuadrangle(VALID_COORDINATES);
-//        verifyNoMoreInteractions(reader, parser, creator, validator);
-//    }
-
 }
