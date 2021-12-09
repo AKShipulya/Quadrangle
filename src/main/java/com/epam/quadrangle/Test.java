@@ -9,7 +9,6 @@ import com.epam.quadrangle.logic.QuadrangleCreator;
 import com.epam.quadrangle.logic.QuadrangleValidator;
 
 import java.io.IOException;
-import java.util.UUID;
 
 public class Test {
 
