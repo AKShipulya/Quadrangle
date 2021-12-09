@@ -34,5 +34,4 @@ public class QuadrangleStore implements Observer {
         }
         return instance;
     }
-
 }

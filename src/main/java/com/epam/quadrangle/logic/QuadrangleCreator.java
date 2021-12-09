@@ -5,10 +5,12 @@ import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.exception.DataException;
 import com.epam.quadrangle.exception.QuadrangleException;
+import com.epam.quadrangle.util.QuadrangleIdGenerator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
+import java.util.UUID;
 
 public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -23,10 +25,10 @@ public class QuadrangleCreator {
     }
 
     public QuadrangleObservable createQuadrangle(String coordinatesList) throws QuadrangleException, DataException {
-
+        QuadrangleIdGenerator idGenerator = new QuadrangleIdGenerator();
         List<Double> parsedLinesToDouble = PARSER.parseToCoordinates(coordinatesList);
 
-            Long ID = idGenerator();
+            Long ID = idGenerator.generateId();
             Point pointA = new Point(parsedLinesToDouble.get(0), parsedLinesToDouble.get(1));
             Point pointB = new Point(parsedLinesToDouble.get(2), parsedLinesToDouble.get(3));
             Point pointC = new Point(parsedLinesToDouble.get(4), parsedLinesToDouble.get(5));
@@ -40,9 +42,5 @@ public class QuadrangleCreator {
 
         LOGGER.info("Quadrangle was created successfully! ID: {}", quadrangle.getID());
         return quadrangle;
-    }
-
-    private Long idGenerator() {
-        return ++quadrangleId;
     }
 }
