@@ -60,7 +60,13 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    // TODO: 09.12.2021 является ли четырехугольник выпуклым
+    // TODO: 09.12.2021 create isConvexQuadrangle
+    public boolean isConvexQuadrangle(QuadrangleObservable quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
+            throw new QuadrangleException("Invalid Quadrangle!");
+        }
+        return true;
+    }
 
     public boolean isRhombus(QuadrangleObservable quadrangle) throws QuadrangleException {
         if (quadrangle == null) {
@@ -110,7 +116,10 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isTrapezoid(QuadrangleObservable quadrangle) {
+    public boolean isTrapezoid(QuadrangleObservable quadrangle) throws QuadrangleException {
+        if (quadrangle == null) {
+            throw new QuadrangleException("Invalid Quadrangle!");
+        }
         double threshold = 1e-10;
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
