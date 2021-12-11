@@ -34,7 +34,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testIsRegularRectangleShouldReturnTrueIfShapeRectangle() throws QuadrangleException {
+    public void testIsRegularRectangleShouldReturnTrueIfShapeRegularRectangle() throws QuadrangleException {
         //given
         //when
         boolean actual = CALCULATOR.isRegularRectangle(QUADRANGLE);
@@ -45,10 +45,10 @@ public class QuadrangleCalculatorTest {
     @Test
     public void testIsRegularRectangleShouldReturnFalseIfShapeIrregularRectangle() throws QuadrangleException {
         //given
-        QuadrangleObservable regularQuadrangle = new QuadrangleObservable(1L, new Point(10, 10),
+        QuadrangleObservable irregularQuadrangle = new QuadrangleObservable(1L, new Point(10, 10),
                 new Point(15, 40), new Point(35, 40), new Point(40, 10));
         //when
-        boolean actual = CALCULATOR.isRegularRectangle(regularQuadrangle);
+        boolean actual = CALCULATOR.isRegularRectangle(irregularQuadrangle);
         //then
         Assert.assertFalse(actual);
     }
@@ -74,10 +74,21 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
+    public void testIsTrapezoidShouldReturnTrueIfQuadrangleTrapezoid() {
+        //given
+        QuadrangleObservable trapezoid = new QuadrangleObservable(1L, new Point(10.0, 10.0),
+                new Point(20.0, 40.0), new Point(50.0, 40.0), new Point(60.0, 10.0));
+        //when
+        boolean actual = CALCULATOR.isTrapezoid(trapezoid);
+        //then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
     public void testIsRhombusShouldReturnTrueIfQuadrangleIsRhombus() throws QuadrangleException {
         //given
         QuadrangleObservable rhombus = new QuadrangleObservable(1L, new Point(50.0, 10.0),
-                new Point(25.0, 50.0), new Point(50.0, 100.0), new Point(100.0, 25.0));
+                new Point(10.0, 50.0), new Point(50.0, 90.0), new Point(90.0, 50.0));
         //when
         boolean actual = CALCULATOR.isRhombus(rhombus);
         //then
