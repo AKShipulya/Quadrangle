@@ -10,6 +10,7 @@ import java.util.Comparator;
 
 public class QuadrangleAreaComparator implements Comparator<QuadrangleObservable> {
     private final static Logger LOGGER = LogManager.getLogger();
+
     @Override
     public int compare(QuadrangleObservable o1, QuadrangleObservable o2) {
         QuadrangleCalculator calculator = new QuadrangleCalculator();

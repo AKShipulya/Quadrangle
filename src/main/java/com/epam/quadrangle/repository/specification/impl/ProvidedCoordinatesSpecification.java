@@ -4,7 +4,6 @@ import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.repository.specification.Specification;
 
 public class ProvidedCoordinatesSpecification implements Specification {
-
     private final double FROM_OX;
     private final double TO_OX;
     private final double FROM_OY;

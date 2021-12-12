@@ -30,7 +30,7 @@ public class QuadrangleObservable extends Quadrangle implements Observable {
     public void detach(Observer observer) {
         OBSERVERS.remove(observer);
     }
-    
+
     @Override
     public void notifyObservers() throws QuadrangleException {
         for (Observer observer : OBSERVERS) {

@@ -60,14 +60,6 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    // TODO: 09.12.2021 create isConvexQuadrangle
-    public boolean isConvexQuadrangle(QuadrangleObservable quadrangle) throws QuadrangleException {
-        if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
-        }
-        return true;
-    }
-
     public boolean isRhombus(QuadrangleObservable quadrangle) throws QuadrangleException {
         if (quadrangle == null) {
             throw new QuadrangleException("Invalid Quadrangle!");
@@ -135,23 +127,14 @@ public class QuadrangleCalculator {
         Point ad = new Point(pointD.getPointX() - pointA.getPointX(),
                 pointD.getPointY() - pointA.getPointY());
 
-        double sideAb = Math.sqrt(Math.pow((pointB.getPointX() - pointA.getPointX()), 2) +
-                Math.pow((pointB.getPointY() - pointA.getPointY()), 2));
-        double sideBc = Math.sqrt(Math.pow((pointC.getPointX() - pointB.getPointX()), 2) +
-                Math.pow((pointC.getPointY() - pointB.getPointY()), 2));
-        double sideCd = Math.sqrt(Math.pow((pointD.getPointX() - pointC.getPointX()), 2) +
-                Math.pow((pointD.getPointY() - pointC.getPointY()), 2));
-        double sideAd = Math.sqrt(Math.pow((pointA.getPointX() - pointD.getPointX()), 2) +
-                Math.pow((pointA.getPointY() - pointD.getPointY()), 2));
-
         boolean sidesAbAndCdAreNotParallel = !(Math.abs(ab.getPointX() * cd.getPointY() - ab.getPointY() * cd.getPointX()) < threshold);
         boolean sidesBcAndAdAreParallel = Math.abs(bc.getPointX() * ad.getPointY() - bc.getPointY() * ad.getPointX()) < threshold;
 
-        boolean result = sidesAbAndCdAreNotParallel && sidesBcAndAdAreParallel;
+        boolean result = sidesAbAndCdAreNotParallel && sidesBcAndAdAreParallel && Double.compare(pointA.getPointX(), pointB.getPointX()) != 0
+                && Double.compare(pointD.getPointX(), pointC.getPointX()) != 0;
 
         LOGGER.info("Quadrangle is a trapezoid: {}", result);
         return result;
-
     }
 
     public boolean isRegularRectangle(QuadrangleObservable quadrangle) throws QuadrangleException {

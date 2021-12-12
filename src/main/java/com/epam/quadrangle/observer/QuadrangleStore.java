@@ -18,7 +18,6 @@ public class QuadrangleStore implements Observer {
     private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
 
     private QuadrangleStore() {
-
     }
 
     public void update(QuadrangleObservable quadrangle) throws QuadrangleException {

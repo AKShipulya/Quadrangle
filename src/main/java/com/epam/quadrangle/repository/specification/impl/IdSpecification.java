@@ -4,7 +4,6 @@ import com.epam.quadrangle.entity.QuadrangleObservable;
 import com.epam.quadrangle.repository.specification.Specification;
 
 public class IdSpecification implements Specification {
-
     private final Long FROM_ID;
     private final Long TO_ID;
 

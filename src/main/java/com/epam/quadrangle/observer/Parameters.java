@@ -1,20 +1,19 @@
 package com.epam.quadrangle.observer;
 
 public class Parameters {
+    private final double AREA;
+    private final double PERIMETER;
 
-    private final double area;
-    private final double perimeter;
-
-    public Parameters(double area, double perimeter) {
-        this.area = area;
-        this.perimeter = perimeter;
+    public Parameters(double AREA, double PERIMETER) {
+        this.AREA = AREA;
+        this.PERIMETER = PERIMETER;
     }
 
-    public double getArea() {
-        return area;
+    public double getAREA() {
+        return AREA;
     }
 
-    public double getPerimeter() {
-        return perimeter;
+    public double getPERIMETER() {
+        return PERIMETER;
     }
 }

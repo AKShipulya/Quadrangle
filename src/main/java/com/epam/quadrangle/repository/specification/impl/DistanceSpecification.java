@@ -18,6 +18,7 @@ public class DistanceSpecification implements Specification {
 
     /**
      * Some simplification:
+     *
      * @return true if points A and D (bottom part of a quadrangle) are located in given range
      * relatively OX and OY coordinate plane axes.
      */

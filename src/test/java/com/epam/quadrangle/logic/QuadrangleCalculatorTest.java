@@ -12,7 +12,6 @@ public class QuadrangleCalculatorTest {
             new Point(10.0, 40.0), new Point(60.0, 40.0), new Point(60.0, 10.0));
 
 
-
     @Test
     public void testCalculateQuadrangleAreaShouldReturnsValidValue() throws QuadrangleException {
         //given
@@ -74,7 +73,7 @@ public class QuadrangleCalculatorTest {
     }
 
     @Test
-    public void testIsTrapezoidShouldReturnTrueIfQuadrangleTrapezoid() {
+    public void testIsTrapezoidShouldReturnTrueIfQuadrangleTrapezoid() throws QuadrangleException {
         //given
         QuadrangleObservable trapezoid = new QuadrangleObservable(1L, new Point(10.0, 10.0),
                 new Point(20.0, 40.0), new Point(50.0, 40.0), new Point(60.0, 10.0));
