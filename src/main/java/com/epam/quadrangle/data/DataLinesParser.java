@@ -11,14 +11,14 @@ public class DataLinesParser {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String DELIMITER_REGEX = "\\s+";
 
-    private final QuadrangleLineValidator LINE_VALIDATOR;
+    private final QuadrangleLineValidator lineValidator;
 
-    public DataLinesParser(QuadrangleLineValidator LINE_VALIDATOR) {
-        this.LINE_VALIDATOR = LINE_VALIDATOR;
+    public DataLinesParser(QuadrangleLineValidator lineValidator) {
+        this.lineValidator = lineValidator;
     }
 
     public List<Double> parseToCoordinates(String line) throws DataException {
-        if (!LINE_VALIDATOR.isValid(line)) {
+        if (!lineValidator.isValid(line)) {
             throw new DataException("Invalid line for parsing: " + "[" + line + "]");
         }
 

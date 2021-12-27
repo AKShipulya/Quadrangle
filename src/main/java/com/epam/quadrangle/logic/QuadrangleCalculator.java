@@ -28,9 +28,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public double calculateQuadranglePerimeter(QuadrangleObservable quadrangle) throws QuadrangleException {
-        if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+    public double calculateQuadranglePerimeter(QuadrangleObservable quadrangle) {
+        if (!VALIDATOR.isValid(quadrangle)) {
+            LOGGER.info("Invalid quadrangle for calculation: {}", quadrangle);
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
