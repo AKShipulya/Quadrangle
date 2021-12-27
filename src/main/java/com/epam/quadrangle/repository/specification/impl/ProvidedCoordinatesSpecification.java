@@ -9,11 +9,11 @@ public class ProvidedCoordinatesSpecification implements Specification {
     private final double FROM_OY;
     private final double TO_OY;
 
-    public ProvidedCoordinatesSpecification(double FROM_OX, double TO_OX, double FROM_OY, double TO_OY) {
-        this.FROM_OX = FROM_OX;
-        this.TO_OX = TO_OX;
-        this.FROM_OY = FROM_OY;
-        this.TO_OY = TO_OY;
+    public ProvidedCoordinatesSpecification(double fromOx, double toOx, double fromOy, double toOy) {
+        this.FROM_OX = fromOx;
+        this.TO_OX = toOx;
+        this.FROM_OY = fromOy;
+        this.TO_OY = toOy;
     }
 
     @Override

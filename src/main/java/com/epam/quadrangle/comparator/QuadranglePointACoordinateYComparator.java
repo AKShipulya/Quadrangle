@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class QuadranglePointACoordinateYComparator implements Comparator<QuadrangleObservable> {
     @Override
-    public int compare(QuadrangleObservable o1, QuadrangleObservable o2) {
-        return Double.compare(o1.getPointA().getPointY(), o2.getPointA().getPointY());
+    public int compare(QuadrangleObservable firstObservableQuadrangle, QuadrangleObservable secondObservableQuadrangle) {
+        return Double.compare(firstObservableQuadrangle.getPointA().getPointY(), secondObservableQuadrangle.getPointA().getPointY());
     }
 }

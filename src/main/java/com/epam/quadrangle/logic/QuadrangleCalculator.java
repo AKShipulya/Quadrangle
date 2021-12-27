@@ -8,10 +8,11 @@ import org.apache.logging.log4j.Logger;
 
 public class QuadrangleCalculator {
     private static final Logger LOGGER = LogManager.getLogger();
+    private final QuadrangleValidator VALIDATOR = new QuadrangleValidator();
 
-    public double calculateQuadrangleArea(QuadrangleObservable quadrangle) throws QuadrangleException {
-        if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+    public double calculateQuadrangleArea(QuadrangleObservable quadrangle) {
+        if (!VALIDATOR.isValid(quadrangle)) {
+            LOGGER.info("Invalid quadrangle for calculation: {}", quadrangle);
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
@@ -45,9 +46,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean arePointsLocationAtOneLine(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean arePointsLocationAtOneLine(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
@@ -60,9 +61,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isRhombus(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean isRhombus(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
@@ -82,9 +83,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isSquare(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean isSquare(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
@@ -108,9 +109,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isTrapezoid(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean isTrapezoid(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         double threshold = 1e-10;
         Point pointA = quadrangle.getPointA();
@@ -137,9 +138,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isRegularRectangle(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean isRegularRectangle(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         Point pointA = quadrangle.getPointA();
         Point pointB = quadrangle.getPointB();
@@ -165,9 +166,9 @@ public class QuadrangleCalculator {
         return result;
     }
 
-    public boolean isSidesParallel(QuadrangleObservable quadrangle) throws QuadrangleException {
+    public boolean isSidesParallel(QuadrangleObservable quadrangle) {
         if (quadrangle == null) {
-            throw new QuadrangleException("Invalid Quadrangle!");
+            return false;
         }
         double threshold = 1e-10;
         Point pointA = quadrangle.getPointA();

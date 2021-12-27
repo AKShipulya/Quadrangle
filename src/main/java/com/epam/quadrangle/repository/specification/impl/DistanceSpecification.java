@@ -9,11 +9,11 @@ public class DistanceSpecification implements Specification {
     private final double FROM_RANGE_Y;
     private final double TO_RANGE_Y;
 
-    public DistanceSpecification(double FROM_RANGE_X, double TO_RANGE_X, double FROM_RANGE_Y, double TO_RANGE_Y) {
-        this.FROM_RANGE_X = FROM_RANGE_X;
-        this.TO_RANGE_X = TO_RANGE_X;
-        this.FROM_RANGE_Y = FROM_RANGE_Y;
-        this.TO_RANGE_Y = TO_RANGE_Y;
+    public DistanceSpecification(double fromRangeX, double toRangeX, double fromRangeY, double toRangeY) {
+        this.FROM_RANGE_X = fromRangeX;
+        this.TO_RANGE_X = toRangeX;
+        this.FROM_RANGE_Y = fromRangeY;
+        this.TO_RANGE_Y = toRangeY;
     }
 
     /**

@@ -12,16 +12,16 @@ public class QuadranglePerimeterComparator implements Comparator<QuadrangleObser
     private final static Logger LOGGER = LogManager.getLogger();
 
     @Override
-    public int compare(QuadrangleObservable o1, QuadrangleObservable o2) {
+    public int compare(QuadrangleObservable firstObservableQuadrangle, QuadrangleObservable secondObservableQuadrangle) {
         QuadrangleCalculator calculator = new QuadrangleCalculator();
-        double o1Area = 0.0;
-        double o2Area = 0.0;
+        double firstObservableQuadrangleArea = 0.0;
+        double secondObservableQuadrangleArea = 0.0;
         try {
-            o1Area = calculator.calculateQuadranglePerimeter(o1);
-            o2Area = calculator.calculateQuadranglePerimeter(o2);
-        } catch (QuadrangleException e) {
-            LOGGER.warn(e);
+            firstObservableQuadrangleArea = calculator.calculateQuadranglePerimeter(firstObservableQuadrangle);
+            secondObservableQuadrangleArea = calculator.calculateQuadranglePerimeter(secondObservableQuadrangle);
+        } catch (QuadrangleException exception) {
+            LOGGER.warn(exception);
         }
-        return Double.compare(o1Area, o2Area);
+        return Double.compare(firstObservableQuadrangleArea, secondObservableQuadrangleArea);
     }
 }

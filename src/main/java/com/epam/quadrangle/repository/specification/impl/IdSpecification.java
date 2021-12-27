@@ -7,9 +7,9 @@ public class IdSpecification implements Specification {
     private final Long FROM_ID;
     private final Long TO_ID;
 
-    public IdSpecification(Long FROM_ID, Long TO_ID) {
-        this.FROM_ID = FROM_ID;
-        this.TO_ID = TO_ID;
+    public IdSpecification(Long fromId, Long toId) {
+        this.FROM_ID = fromId;
+        this.TO_ID = toId;
     }
 
     @Override

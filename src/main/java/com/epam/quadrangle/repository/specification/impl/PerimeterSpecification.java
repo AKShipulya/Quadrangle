@@ -12,9 +12,9 @@ public class PerimeterSpecification implements Specification {
     private final double FROM_PERIMETER;
     private final double TO_PERIMETER;
 
-    public PerimeterSpecification(double FROM_PERIMETER, double TO_PERIMETER) {
-        this.FROM_PERIMETER = FROM_PERIMETER;
-        this.TO_PERIMETER = TO_PERIMETER;
+    public PerimeterSpecification(double fromPerimeter, double toPerimeter) {
+        this.FROM_PERIMETER = fromPerimeter;
+        this.TO_PERIMETER = toPerimeter;
     }
 
     @Override

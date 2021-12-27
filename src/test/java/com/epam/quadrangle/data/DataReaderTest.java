@@ -4,6 +4,7 @@ import com.epam.quadrangle.exception.DataException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -23,11 +24,11 @@ public class DataReaderTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = IOException.class)
+    @Test(expected = DataException.class)
     public void testReadValidLinesFromFileShouldNotReadLines() throws DataException, IOException {
         //given
         DataReader reader = new DataReader();
-        String filePath = "/1/1/1.tst";
+        String filePath = "src/1/2/3.tst";
         //when
         reader.readValidLinesFromFile(filePath);
     }
