@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class QuadrangleCalculatorTest {
-    private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
+    private static final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
     private static final QuadrangleObservable QUADRANGLE = new QuadrangleObservable(1L, new Point(10.0, 10.0),
             new Point(10.0, 40.0), new Point(60.0, 40.0), new Point(60.0, 10.0));
 

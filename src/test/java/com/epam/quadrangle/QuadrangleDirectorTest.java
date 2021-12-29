@@ -17,10 +17,10 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 public class QuadrangleDirectorTest {
-    private final static String FILE_PATH = "testPath";
-    private final static List<String> LIST_VALID_LINE = Arrays.asList("1 2 3");
-    private final static String VALID_COORDINATES_LINE = "1 2 3";
-    private final static QuadrangleObservable QUADRANGLE = Mockito.mock(QuadrangleObservable.class);
+    private static final String FILE_PATH = "testPath";
+    private static final List<String> LIST_VALID_LINE = Arrays.asList("1 2 3");
+    private static final String VALID_COORDINATES_LINE = "1 2 3";
+    private static final QuadrangleObservable QUADRANGLE = Mockito.mock(QuadrangleObservable.class);
 
     @Test
     public void testReadShouldCreateWhenValid() throws DataException, IOException, QuadrangleException {

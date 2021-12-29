@@ -13,16 +13,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class QuadrangleSpecificationTest {
-    private final QuadrangleRepository REPOSITORY = new QuadrangleRepositoryImpl();
-    private final QuadrangleObservable QUADRANGLE_1 = new QuadrangleObservable(3L, new Point(10.00, 10.00),
+    private static final QuadrangleRepository REPOSITORY = new QuadrangleRepositoryImpl();
+    private static final QuadrangleObservable QUADRANGLE_1 = new QuadrangleObservable(3L, new Point(10.00, 10.00),
             new Point(10.00, 40.00), new Point(60.00, 40.00), new Point(60.00, 10.00));
-    private final QuadrangleObservable QUADRANGLE_2 = new QuadrangleObservable(2L, new Point(12.99, 10.99),
+    private static final QuadrangleObservable QUADRANGLE_2 = new QuadrangleObservable(2L, new Point(12.99, 10.99),
             new Point(10.99, 40.99), new Point(60.99, 40.99), new Point(60.99, 10.99));
-    private final QuadrangleObservable QUADRANGLE_3 = new QuadrangleObservable(1L, new Point(13.50, 10.50),
+    private static final QuadrangleObservable QUADRANGLE_3 = new QuadrangleObservable(1L, new Point(13.50, 10.50),
             new Point(10.50, 40.50), new Point(60.50, 40.50), new Point(60.50, 10.50));
-    private final QuadrangleObservable QUADRANGLE_MINUS = new QuadrangleObservable(4L, new Point(-13.50, -10.50),
+    private static final QuadrangleObservable QUADRANGLE_MINUS = new QuadrangleObservable(4L, new Point(-13.50, -10.50),
             new Point(-10.50, -40.50), new Point(-60.50, -40.50), new Point(-60.50, -10.50));
-    private final QuadrangleObservable QUADRANGLE_MINUS_PLUS = new QuadrangleObservable(5L, new Point(-13.50, 10.50),
+    private static final QuadrangleObservable QUADRANGLE_MINUS_PLUS = new QuadrangleObservable(5L, new Point(-13.50, 10.50),
             new Point(-13.50, 40.50), new Point(60.50, 40.50), new Point(60.50, 10.50));
 
     @Before

@@ -7,32 +7,32 @@ import com.epam.quadrangle.repository.specification.Specification;
 import java.util.*;
 
 public class QuadrangleRepositoryImpl implements QuadrangleRepository {
-    private final Map<Long, QuadrangleObservable> STORE = new HashMap<>();
+    private final Map<Long, QuadrangleObservable> store = new HashMap<>();
 
     @Override
     public void add(QuadrangleObservable quadrangle) {
-        STORE.put(quadrangle.getID() ,quadrangle);
+        store.put(quadrangle.getId() ,quadrangle);
     }
 
     @Override
     public void addAll(Map<Long, QuadrangleObservable> quadrangles) {
-        STORE.putAll(quadrangles);
+        store.putAll(quadrangles);
     }
 
     @Override
     public void delete(QuadrangleObservable quadrangle) {
-        STORE.remove(quadrangle.getID());
+        store.remove(quadrangle.getId());
     }
 
     @Override
     public void update(QuadrangleObservable quadrangle) {
-        STORE.replace(quadrangle.getID(), quadrangle);
+        store.replace(quadrangle.getId(), quadrangle);
     }
 
     @Override
     public List<QuadrangleObservable> query(Specification specification) {
         List<QuadrangleObservable> quadrangles = new ArrayList<>();
-        for (QuadrangleObservable quadrangle : STORE.values()) {
+        for (QuadrangleObservable quadrangle : store.values()) {
             if (specification.specified(quadrangle)) {
                 quadrangles.add(quadrangle);
             }
@@ -42,7 +42,7 @@ public class QuadrangleRepositoryImpl implements QuadrangleRepository {
 
     @Override
     public List<QuadrangleObservable> sort(Comparator<QuadrangleObservable> comparator) {
-        List<QuadrangleObservable> quadrangles = new ArrayList<>(STORE.values());
+        List<QuadrangleObservable> quadrangles = new ArrayList<>(store.values());
         quadrangles.sort(comparator);
         return quadrangles;
     }

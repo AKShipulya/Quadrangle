@@ -14,17 +14,17 @@ public class QuadrangleStore implements Observer {
 
     private static QuadrangleStore instance = new QuadrangleStore();
 
-    private final Map<Long, Parameters> PARAMETERS = new HashMap<>();
-    private final QuadrangleCalculator CALCULATOR = new QuadrangleCalculator();
+    private final Map<Long, Parameters> parameters = new HashMap<>();
+    private final QuadrangleCalculator calculator = new QuadrangleCalculator();
 
     private QuadrangleStore() {
     }
 
     public void update(QuadrangleObservable quadrangle) throws QuadrangleException {
-        double area = CALCULATOR.calculateQuadrangleArea(quadrangle);
-        double perimeter = CALCULATOR.calculateQuadranglePerimeter(quadrangle);
+        double area = calculator.calculateQuadrangleArea(quadrangle);
+        double perimeter = calculator.calculateQuadranglePerimeter(quadrangle);
         LOGGER.info("Parameters were updated successfully!");
-        PARAMETERS.put(quadrangle.getID(), new Parameters(area, perimeter));
+        parameters.put(quadrangle.getId(), new Parameters(area, perimeter));
     }
 
     public static QuadrangleStore getInstance() {

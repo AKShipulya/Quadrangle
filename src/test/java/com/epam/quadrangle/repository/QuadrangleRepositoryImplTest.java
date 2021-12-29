@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.util.*;
 
 public class QuadrangleRepositoryImplTest {
-    public final static QuadrangleRepository REPOSITORY = new QuadrangleRepositoryImpl();
-    public final static QuadrangleObservable QUADRANGLE_1 = new QuadrangleObservable(1L, new Point(10.00, 10.00),
+    public static final QuadrangleRepository REPOSITORY = new QuadrangleRepositoryImpl();
+    public static final QuadrangleObservable QUADRANGLE_1 = new QuadrangleObservable(1L, new Point(10.00, 10.00),
             new Point(10.00, 40.00), new Point(80.00, 40.00), new Point(80.00, 10.00));
-    public final static QuadrangleObservable QUADRANGLE_2 = new QuadrangleObservable(2L, new Point(10.00, 10.00),
+    public static final QuadrangleObservable QUADRANGLE_2 = new QuadrangleObservable(2L, new Point(10.00, 10.00),
             new Point(10.00, 40.00), new Point(60.00, 40.00), new Point(60.00, 10.00));
 
     //query

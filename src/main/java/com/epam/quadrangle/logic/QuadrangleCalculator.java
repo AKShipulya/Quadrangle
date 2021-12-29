@@ -2,16 +2,16 @@ package com.epam.quadrangle.logic;
 
 import com.epam.quadrangle.entity.Point;
 import com.epam.quadrangle.entity.QuadrangleObservable;
-import com.epam.quadrangle.exception.QuadrangleException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class QuadrangleCalculator {
     private static final Logger LOGGER = LogManager.getLogger();
-    private final QuadrangleValidator VALIDATOR = new QuadrangleValidator();
+
+    private final QuadrangleValidator validator = new QuadrangleValidator();
 
     public double calculateQuadrangleArea(QuadrangleObservable quadrangle) {
-        if (!VALIDATOR.isValid(quadrangle)) {
+        if (!validator.isValid(quadrangle)) {
             LOGGER.info("Invalid quadrangle for calculation: {}", quadrangle);
         }
         Point pointA = quadrangle.getPointA();
@@ -29,7 +29,7 @@ public class QuadrangleCalculator {
     }
 
     public double calculateQuadranglePerimeter(QuadrangleObservable quadrangle) {
-        if (!VALIDATOR.isValid(quadrangle)) {
+        if (!validator.isValid(quadrangle)) {
             LOGGER.info("Invalid quadrangle for calculation: {}", quadrangle);
         }
         Point pointA = quadrangle.getPointA();

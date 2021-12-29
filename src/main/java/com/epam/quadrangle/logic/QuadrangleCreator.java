@@ -13,17 +13,18 @@ import java.util.List;
 
 public class QuadrangleCreator {
     private static final Logger LOGGER = LogManager.getLogger();
-    private final QuadrangleValidator QUADRANGLE_VALIDATOR;
-    private final DataLinesParser PARSER;
+
+    private final QuadrangleValidator quadrangleValidator;
+    private final DataLinesParser parser;
 
     public QuadrangleCreator(QuadrangleValidator quadrangleValidator, DataLinesParser parser) {
-        this.QUADRANGLE_VALIDATOR = quadrangleValidator;
-        this.PARSER = parser;
+        this.quadrangleValidator = quadrangleValidator;
+        this.parser = parser;
     }
 
     public QuadrangleObservable createQuadrangle(String coordinatesList) throws QuadrangleException, DataException {
         QuadrangleIdGenerator idGenerator = new QuadrangleIdGenerator();
-        List<Double> parsedLinesToDouble = PARSER.parseToCoordinates(coordinatesList);
+        List<Double> parsedLinesToDouble = parser.parseToCoordinates(coordinatesList);
 
         Long ID = idGenerator.generateId();
         Point pointA = new Point(parsedLinesToDouble.get(0), parsedLinesToDouble.get(1));
@@ -33,11 +34,11 @@ public class QuadrangleCreator {
 
         QuadrangleObservable quadrangle = new QuadrangleObservable(ID, pointA, pointB, pointC, pointD);
 
-        if (!QUADRANGLE_VALIDATOR.isValid(quadrangle)) {
+        if (!quadrangleValidator.isValid(quadrangle)) {
             throw new QuadrangleException("Quadrangle cannot be created!");
         }
 
-        LOGGER.info("Quadrangle was created successfully! ID: {}", quadrangle.getID());
+        LOGGER.info("Quadrangle was created successfully! ID: {}", quadrangle.getId());
         return quadrangle;
     }
 }

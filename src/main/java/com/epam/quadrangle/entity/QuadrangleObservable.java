@@ -8,32 +8,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuadrangleObservable extends Quadrangle implements Observable {
+    private final Long id;
+    private final List<Observer> observers = new ArrayList<>();
 
-    private final Long ID;
-    private final List<Observer> OBSERVERS = new ArrayList<>();
-
-    public QuadrangleObservable(Long ID, Point pointA, Point pointB, Point pointC, Point pointD) {
+    public QuadrangleObservable(Long id, Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
-        this.ID = ID;
+        this.id = id;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
     @Override
     public void attach(Observer observer) {
-        OBSERVERS.add(observer);
+        observers.add(observer);
     }
 
     @Override
     public void detach(Observer observer) {
-        OBSERVERS.remove(observer);
+        observers.remove(observer);
     }
 
     @Override
     public void notifyObservers() throws QuadrangleException {
-        for (Observer observer : OBSERVERS) {
+        for (Observer observer : observers) {
             observer.update(this);
         }
     }

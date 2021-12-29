@@ -15,12 +15,12 @@ import java.util.List;
 public class QuadrangleDirector {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private final DataReader READER;
-    private final QuadrangleCreator CREATOR;
+    private final DataReader reader;
+    private final QuadrangleCreator creator;
 
-    public QuadrangleDirector(DataReader READER, QuadrangleCreator CREATOR) {
-        this.READER = READER;
-        this.CREATOR = CREATOR;
+    public QuadrangleDirector(DataReader reader, QuadrangleCreator creator) {
+        this.reader = reader;
+        this.creator = creator;
     }
 
     public List<QuadrangleObservable> read(String filePath) throws DataException {
@@ -30,8 +30,8 @@ public class QuadrangleDirector {
         List<QuadrangleObservable> quadrangles = new ArrayList<>();
 
         try {
-            for (String pointsLine : READER.readValidLinesFromFile(filePath)) {
-                QuadrangleObservable quadrangle = CREATOR.createQuadrangle(pointsLine);
+            for (String pointsLine : reader.readValidLinesFromFile(filePath)) {
+                QuadrangleObservable quadrangle = creator.createQuadrangle(pointsLine);
                 quadrangles.add(quadrangle);
             }
         } catch (DataException | QuadrangleException | IOException e) {
