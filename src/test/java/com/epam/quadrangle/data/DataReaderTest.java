@@ -24,12 +24,14 @@ public class DataReaderTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = DataException.class)
+    @Test
     public void testReadValidLinesFromFileShouldNotReadLines() throws DataException, IOException {
         //given
         DataReader reader = new DataReader();
         String filePath = "src/1/2/3.tst";
         //when
-        reader.readValidLinesFromFile(filePath);
+        List<String> actual = reader.readValidLinesFromFile(filePath);
+        //then
+        Assert.assertNull(actual);
     }
 }

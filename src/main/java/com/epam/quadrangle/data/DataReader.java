@@ -31,7 +31,8 @@ public class DataReader {
             LOGGER.warn("File not found! File path: {}", exception.getMessage());
             return null;
         } catch (IOException exception) {
-            throw new DataException("File I/O error!", exception);
+            LOGGER.warn("File I/O error! {}", exception.getMessage());
+            return null;
         } finally {
             if (bufferedReader != null) {
                 try {
@@ -43,6 +44,7 @@ public class DataReader {
         }
         if (linesFromFile.isEmpty()) {
             LOGGER.info("No data in the file provided! File: {}", linesFromFile);
+            return null;
         }
         LOGGER.info("Lines from file were read successfully!");
         return linesFromFile;
